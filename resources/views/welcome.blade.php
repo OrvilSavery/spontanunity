@@ -17,6 +17,7 @@
                 display: table;
                 font-weight: 100;
                 font-family: 'Lato';
+                background:#2b1209;
             }
 
             .container {
@@ -38,7 +39,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5</div>
+                <div class="title"><img src="{{ URL::asset('library/img/logo.png') }}" alt="" /></div>
             </div>
         </div>
     </body>
