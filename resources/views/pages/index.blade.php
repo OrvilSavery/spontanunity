@@ -33,12 +33,12 @@
             @else
                 <form action="{{ URL::to('email/subscribe') }}" method="POST">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <div class="col-md-8 col-sm-8 col-xs-8 form-group text-left">
+                    <div class="col-md-8 col-sm-8 col-xs-12 form-group text-left">
                         <label for="">Email Address</label>
                         <input type="email" placeholder="sign up with to be a beta tester" class="form-control" name="email"
                                id="email">
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-4 form-group">
+                    <div class="col-md-4 col-sm-4 col-xs-12 form-group">
                         <label for="">&nbsp;</label><br/>
                         <div class="row">
                             <input type="submit" class="btn btn-primary col-md-12">
