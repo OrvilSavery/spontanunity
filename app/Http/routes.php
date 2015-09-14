@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Homepage
+Route::get('/', 'PagesController@index');
+
+//Store Email Address
+Route::post('email/subscribe', 'EmailsController@store');

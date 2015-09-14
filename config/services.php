@@ -35,4 +35,5 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'postmark' => '98184da4-b755-4f36-a414-dcd0f81fa299',
 ];
