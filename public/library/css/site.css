@@ -6780,12 +6780,6 @@ body {
     background-attachment: fixed;
   }
 }
-@media (max-width: 320px) {
-  body {
-    background-attachment: fixed;
-    background: #fbcf8a url(../img/bg-body.jpg) no-repeat top right;
-  }
-}
 ::selection {
   background: rgba(148, 215, 103, 0.8);
   /* WebKit/Blink Browsers */
