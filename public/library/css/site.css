@@ -6784,7 +6784,6 @@ body {
   body {
     background-attachment: fixed;
     background: #fbcf8a url(../img/bg-body.jpg) no-repeat top right;
-    background-size: auto 100%;
   }
 }
 ::selection {
