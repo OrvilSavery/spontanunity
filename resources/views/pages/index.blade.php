@@ -28,7 +28,20 @@
                     </div>
                 </div>
             @else
-                <form action="{{ URL::to('email/subscribe') }}" method="POST">
+                <form action="http://spontanuity.createsend.com/t/i/s/irdujr/" method="post" id="subForm">
+                    <div class="col-md-8 col-sm-8 col-xs-12 form-group text-left">
+                        <label for="fieldEmail">Email</label><br />
+                        <input id="fieldEmail" name="cm-irdujr-irdujr" type="email" class="form-control" placeholder="Sign up to be a beta tester" required />
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12 form-group">
+                        <label for="">&nbsp;</label><br/>
+                        <button type="submit" class="btn btn-primary col-md-12 col-sm-12 col-xs-10 col-xs-offset-1">Subscribe</button>
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <small>spam free since forever</small>
+                    </div>
+                </form>
+               {{-- <form action="{{ URL::to('email/subscribe') }}" method="POST">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="col-md-8 col-sm-8 col-xs-12 form-group text-left">
                         <label for="">Email Address</label>
@@ -44,7 +57,7 @@
                     <div class="col-md-12 text-center">
                         <small>spam free since forever</small>
                     </div>
-                </form>
+                </form> --}}
             @endif
             <div class="clearfix"></div>
             <br/><br/>
