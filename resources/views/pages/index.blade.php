@@ -15,7 +15,7 @@
         </p>
         <div class="clearfix"></div>
         <div class="search-bar col-md-12">
-                <form action="http://spontanuity.createsend.com/t/i/s/irdujr/" method="post" id="subForm">
+                <form action="http://spontanuity.createsend.com/t/i/s/irdujr/" method="post" id="subForm" style="z-index:1000;">
                     <div class="col-md-12 col-sm-12 col-xs-12 input-lg form-group text-left">
                         <label for="fieldEmail">Email</label><br />
                         <input id="fieldEmail" name="cm-irdujr-irdujr" type="email" class="form-control" placeholder="Sign up to be a beta tester" required />
