@@ -13,6 +13,8 @@
 
 //Homepage
 Route::get('/', 'PagesController@index');
+//Confirmation Page
+Route::get('thank-you', 'PagesController@confirm');
 
-//Store Email Address
-Route::post('email/subscribe', 'EmailsController@store');
+//Send Email Address
+Route::get('emails/index', 'EmailsController@index');

@@ -16,4 +16,12 @@ class PagesController extends Controller
     {
         return view('pages.index');
     }
+
+    /**
+     * Confirmation Page
+     */
+    public function confirm()
+    {
+        return view('pages.confirm');
+    }
 }
