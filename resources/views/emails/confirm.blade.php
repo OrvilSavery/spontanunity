@@ -178,7 +178,7 @@
                                                 bgcolor="#A8D588"><h1>1.</h1></td>
                                             <td valign="top" width="70%"
                                                 style="padding: 2% 4%; font-family: sans-serif; font-size: 15px; line-height: 1.3; color: #666666; text-align: left;border-bottom:1px solid #ccc">
-                                                <h3>First to get updates on our launch and new things coming happening
+                                                <h3>First to get updates on our launch and new things happening
                                                     with us. <i>(get excited!)</i></h3>
                                             </td>
                                             <td width="15%" style="font-size: 0;line-height: 0;">&nbsp;</td>
