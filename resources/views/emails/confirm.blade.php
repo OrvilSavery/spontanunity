@@ -145,7 +145,7 @@
 
                         <!-- Main Email Body : BEGIN -->
                         <table border="0" width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="border:1px solid #326610;">
-                            <tr align="center" bgcolor="#467720">
+                            <tr align="center" bgcolor="#264811">
                                 <td style="padding: 0% 4%; font-family: sans-serif; font-size: 18px; line-height: 1.3; color: #ffffff;">
                                     <h1>Welcome to the Spontanuity! Subscription Confirmed.</h1>
                                 </td>
