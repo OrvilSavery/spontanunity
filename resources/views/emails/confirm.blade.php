@@ -191,7 +191,7 @@
                                                 style="padding: 2% 4%; font-family: sans-serif; font-size: 15px; line-height: 1.3; color: #666666; text-align: left;border-bottom:1px solid #ccc">
                                                 <h3>The unique ability to be a part of the Spontanuity community and
                                                     joining others looking to expand and explore the world around
-                                                    them.</h3>
+                                                    them. <i>(even more exciting!)</i></h3>
                                             </td>
                                             <td width="15%" style="font-size: 0;line-height: 0;">&nbsp;</td>
                                         </tr>
@@ -202,7 +202,7 @@
                                             <td valign="top" width="70%"
                                                 style="padding: 2% 4%; font-family: sans-serif; font-size: 15px; line-height: 1.3; color: #666666; text-align: left;">
                                                 <h3>Exclusive access to help improve and impact the development of
-                                                    Spontanuity to make it the best platform possible</h3>
+                                                    Spontanuity to make it the best platform possible <i>(lose your mind!)</i></h3>
                                             </td>
                                             <td width="15%" style="font-size: 0;line-height: 0;">&nbsp;</td>
                                         </tr>
