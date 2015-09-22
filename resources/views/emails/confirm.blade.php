@@ -147,7 +147,7 @@
                         <table border="0" width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="border:1px solid #326610;">
                             <tr align="center" bgcolor="#264811">
                                 <td style="padding: 0% 4%; font-family: sans-serif; font-size: 18px; line-height: 1.3; color: #ffffff;">
-                                    <h1>Welcome to the Spontanuity! Subscription Confirmed.</h1>
+                                    <h1>Welcome to Spontanuity! Subscription Confirmed.</h1>
                                 </td>
                             </tr>
                             <tr bgcolor="#2D5712" align="center"
@@ -215,7 +215,7 @@
                             <tr bgcolor="#A8D588">
                                 <td style="padding: 2% 4%; font-family: sans-serif; font-size: 14px; line-height: 1.3; color: #2D5712;">
                                     We’ve set out to make Spontanuity more than just a platform for doing cool things.
-                                    It’s a about a mindset, a way of life, and most importantly <strong>a
+                                    It’s about a mindset, a way of life, and most importantly <strong>a
                                         community</strong>.
                                 </td>
                             </tr>
@@ -224,13 +224,13 @@
                             <tr bgcolor="#A8D588">
                                 <td style="padding: 2% 4%; font-family: sans-serif; font-size: 14px; line-height: 1.3; color: #2D5712;">
                                     So if you ever have suggestions about how to make it better, things we should be
-                                    watching out for, or just an awesome story don’t hesitate to reach out to us at:
+                                    watching out for, or just an awesome story, don’t hesitate to reach out to us at:
                                 </td>
                             </tr>
 
                             <tr bgcolor="#2D5712" align="center" style="background:url({{ URL::to('library/img/emails/bg-body.jpg') }}) bottom center;background-size:100% auto">
                                 <td style="padding:4%; font-family:sans-serif;font-size:24px; line-height:1.3;color:#ffffff">
-                                    <a href="mailto:team@spontanuity.com" style="color:#ffffff; text-decoration: none;">team@spontanuity.com</a>
+                                    <a href="mailto:team@spontanuityapp.com" style="color:#ffffff; text-decoration: none;">team@spontanuityapp.com</a>
                                 </td>
                             </tr>
 
