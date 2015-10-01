@@ -4,7 +4,7 @@ $(document).ready(function(){
     var docHeight = $(document).height();
     if(windowWidth < 1024) {
         $('body').css({
-            'background-size': '130% 130%'
+            'background-size': '100% 100%'
         });
     }
 });
