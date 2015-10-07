@@ -2,43 +2,117 @@
 
 namespace App\Http\Controllers;
 
-use App\Subscriber;
-use Mail;
-use Request;
-use Illuminate\Support\Facades\Session;
+use App\Event;
+use Illuminate\Http\Request;
+
+use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class EventsController extends Controller
 {
     /**
-     * @var Subscriber
+     * @var Event
      */
-    private $subscriber;
+    private $event;
 
     /**
-     * EmailsController constructor.
+     * EventsController constructor.
      */
-    public function __construct(Subscriber $subscriber)
+    public function __construct(Event $event)
     {
-        $this->subscriber = $subscriber;
+        $this->event = $event;
     }
 
 
-    public function getEvents(){
-        $results = DB::select('select * from spontanunity.events limit 4');
-        return $results;
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        //Get All Events
+        $events = $this->event->orderby('create_date', 'desc')->get();
+        return view('admin.events.index', compact('events'));
+        //return $events;
     }
 
-    public function sendEmail(){
-
-        Mail::send('folder.view', $data, function($message) {
-            $message->to($subscriber->email, $subscriber->name)->subject('Here are your first four events!');
-        });
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return Responsi
+     */
+    public function create()
+    {
+        //
     }
 
-    public function takeAction(){
-        //Need a way to write event actions to the database
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function store(Request $request)
+    {
+        //
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function edit($id)
+    {
+        $event = $this->event->find($id);
+        //return view('admin.events.edit', compact('event'));
+        return $event;
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  Request  $request
+     * @param  int  $id
+     * @return Response
+     */
+    public function update(Request $request, $id)
+    {
+        $event = $this->event->find($id);
+
+        $event->name = $request['name'];
+        $event->type = $request['type'];
+        $event->description = $request['description'];
+        $event->level = $request['level'];
+        $event->save();
+
+        return redirect()->back()->with('success', 'Event Updated');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function destroy($id)
+    {
+        $event = $this->event->find($id);
+        $event->delete();
+
+        return redirect()->back()->with('deleted', 'event Deleted');
+    }
 }
