@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\EventType;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -14,13 +15,18 @@ class EventsController extends Controller
      * @var Event
      */
     private $event;
+    /**
+     * @var EventType
+     */
+    private $eventType;
 
     /**
      * EventsController constructor.
      */
-    public function __construct(Event $event)
+    public function __construct(Event $event, EventType $eventType)
     {
         $this->event = $event;
+        $this->eventType = $eventType;
     }
 
 
@@ -34,7 +40,6 @@ class EventsController extends Controller
         //Get All Events
         $events = $this->event->orderby('create_date', 'desc')->get();
         return view('admin.events.index', compact('events'));
-        //return $events;
     }
 
     /**
@@ -44,7 +49,8 @@ class EventsController extends Controller
      */
     public function create()
     {
-        //
+        $eventTypes = $this->eventType->all();
+        return view('admin.events.create', compact('eventTypes'));
     }
 
     /**
@@ -55,7 +61,32 @@ class EventsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $missingMessage = 'Please fill out the form completely';
+        if(strlen($request['name']) < 1) {
+            return redirect()->back()->with('error', $missingMessage);
+        } elseif(strlen($request['type']) < 1) {
+            return redirect()->back()->with('error', $missingMessage);
+        } elseif(strlen($request['description']) < 1) {
+            return redirect()->back()->with('error', $missingMessage);
+        } elseif(strlen($request['level']) < 1) {
+            return redirect()->back()->with('error', $missingMessage);
+        }
+
+        $event = new Event;
+        $event->name = $request['name'];
+        $event->type = $request['type'];
+        $event->description = $request['description'];
+        $event->level = $request['level'];
+        $event->save();
+
+        //Update Events Type Table
+        if(!EventType::where('name', $event->type)->first()) {
+            $eventType = new EventType;
+            $eventType->name = $request['type'];
+            $eventType->save();
+        }
+
+        return redirect('admin/events/'.$event->id)->with('success', 'Event Created!');
     }
 
     /**
@@ -78,8 +109,8 @@ class EventsController extends Controller
     public function edit($id)
     {
         $event = $this->event->find($id);
-        //return view('admin.events.edit', compact('event'));
-        return $event;
+        $eventTypes = $this->eventType->all();
+        return view('admin.events.edit', compact('event', 'eventTypes'));
     }
 
     /**
@@ -99,7 +130,14 @@ class EventsController extends Controller
         $event->level = $request['level'];
         $event->save();
 
-        return redirect()->back()->with('success', 'Event Updated');
+        //Update Events Type Table
+        if(!EventType::where('name', $event->type)->first()) {
+            $eventType = new EventType;
+            $eventType->name = $request['type'];
+            $eventType->save();
+        }
+
+        return redirect()->back()->with('success', 'Event Updated!');
     }
 
     /**

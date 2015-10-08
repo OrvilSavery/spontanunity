@@ -6,3 +6,10 @@ function navIs($url) {
         return 'active';
     }
 }
+
+//Set Navigation as disabled
+function navIsDisabled($url) {
+    if(strpos(URL::current(), $url)) {
+        return 'disabled';
+    }
+}

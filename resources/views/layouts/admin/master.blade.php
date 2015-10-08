@@ -68,5 +68,10 @@
 
 <script src="{{ URL::asset('admin/js/offcanvas.js') }}"></script>
 @yield('scripts')
+<script>
+    $(document).ready(function() {
+       $('.fade-alert').delay(2000).fadeOut();
+    });
+</script>
 </body>
 </html>

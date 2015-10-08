@@ -32,7 +32,7 @@
                         <td>{{ date('m/d/y', strtotime($event->create_date)) }}</td>
                         <td>
                             <nobr>
-                            <a href="{{ URL::asset('admin/events/'.$event.'/edit') }}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
+                            <a href="{{ URL::asset('admin/events/'.$event->id.'/edit') }}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
                             <a data-toggle="modal" data-target="#deleteEvent" data-url="{{ URL::route('admin.events.destroy', $event->id) }}" class="btn btn-danger delete-event"><i class="glyphicon glyphicon-trash"></i></a>
                             </nobr>
                         </td>
