@@ -38,14 +38,14 @@ class EventsController extends Controller
     public function index()
     {
         //Get All Events
-        $events = $this->event->orderby('create_date', 'desc')->get();
+        $events = $this->event->orderby('created_at', 'desc')->get();
         return view('admin.events.index', compact('events'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return Responsi
+     * @return Response
      */
     public function create()
     {
@@ -54,10 +54,9 @@ class EventsController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  Request  $request
-     * @return Response
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     * Store New Event
      */
     public function store(Request $request)
     {

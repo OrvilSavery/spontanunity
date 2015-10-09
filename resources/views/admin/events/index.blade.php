@@ -29,7 +29,7 @@
                         <td class="truncate">{{ substr($event->description, 0, 50).'...' }}</td>
                         <td>{{ $event->type }}</td>
                         <td>{{ $event->level }}</td>
-                        <td>{{ date('m/d/y', strtotime($event->create_date)) }}</td>
+                        <td>{{ date('m/d/y', strtotime($event->created_at)) }}</td>
                         <td>
                             <nobr>
                             <a href="{{ URL::asset('admin/events/'.$event->id.'/edit') }}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
