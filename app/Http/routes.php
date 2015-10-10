@@ -18,6 +18,9 @@ Route::get('thank-you', 'PagesController@confirm');
 
 //Admin Section
 Route::group(['prefix' => 'admin'], function(){
+
+    //Admin Index
+    Route::get('/', function(){ return redirect('admin/events'); });
     //Events
     Route::resource('events', 'EventsController');
 });

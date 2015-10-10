@@ -12,10 +12,10 @@
     <title>Spontanuity | Admin</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{{ URL::asset('admin/css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('cp/css/bootstrap.css') }}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{{ URL::asset('admin/css/offcanvas.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('cp/css/offcanvas.css') }}" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -61,12 +61,12 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="{{ URL::asset('admin/js/bootstrap.min.js') }}"></script>
+<script src="{{ URL::asset('cp/js/bootstrap.min.js') }}"></script>
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="{{ URL::asset('admin/js/ie10-viewport-bug-workaround.js') }}"></script>
+<script src="{{ URL::asset('cp/js/ie10-viewport-bug-workaround.js') }}"></script>
 
-<script src="{{ URL::asset('admin/js/offcanvas.js') }}"></script>
+<script src="{{ URL::asset('cp/js/offcanvas.js') }}"></script>
 @yield('scripts')
 <script>
     $(document).ready(function() {
