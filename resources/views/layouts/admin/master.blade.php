@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Off Canvas Template for Bootstrap</title>
+    <title>Spontanuity | Admin</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ URL::asset('admin/css/bootstrap.css') }}" rel="stylesheet">
