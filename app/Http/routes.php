@@ -27,3 +27,20 @@ Route::group(['prefix' => 'admin'], function(){
 
 //Send Email Address
 Route::get('emails/index', 'EmailsController@index');
+
+
+/**
+ * SPECIAL FUNCTIONS
+ */
+//Update Event Type Table
+Route::get('update-event-table', function(){
+    $events = \App\Event::all();
+    foreach($events as $event) {
+        if(! \App\EventType::where('name', $event->type)->first()) {
+            $type = new \App\EventType();
+            $type->name = $event->type;
+            $type->save();
+        }
+    }
+        return "Event Type Table Updated";
+});
