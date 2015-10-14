@@ -44,3 +44,6 @@ Route::get('update-event-table', function(){
     }
         return "Event Type Table Updated";
 });
+
+//send email with initial event
+Route::get('emails/events','EventEmailsController@index');
