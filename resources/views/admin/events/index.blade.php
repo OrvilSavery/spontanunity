@@ -9,7 +9,11 @@
 
     <div class="clearfix"></div>
     <div class="col-md-12">
-        <h1 class="page-header">Events</h1>
+        <h1 class="page-header">Events <br/>
+            {{-- SHOW COUNT OF ENTRIES WITH MISSING INFORMATION --}}
+            <small class="text-danger">{{ App\Event::where('name', '')->orWhere('type', '')->orWhere('level', 0)->count() }} Events Are Missing Information!</small>
+        </h1>
+
         <div class="table-responsive">
             <table class="table table-bordered table-condensed">
                 <thead>
@@ -24,16 +28,41 @@
                 </thead>
                 <tbody>
                 @foreach($events as $event)
-                    <tr>
-                        <td>{{ $event->name }}</td>
+                    <tr
+                            @if(!$event->name || !$event->type || $event->level == 0)
+                            class="bg-danger"
+                            @endif
+                            >
+                        <td>
+                            @if($event->name)
+                                {{ $event->name }}
+                            @else
+                                <strong class="text-danger">MISSING!</strong>
+                            @endif
+                        </td>
                         <td class="truncate">{{ substr($event->description, 0, 50).'...' }}</td>
-                        <td>{{ $event->type }}</td>
-                        <td>{{ $event->level }}</td>
+                        <td>
+                            @if($event->type)
+                                {{ $event->type }}
+                            @else
+                                <strong class="text-danger">MISSING!</strong>
+                            @endif
+                        </td>
+                        <td>
+                            @if($event->level > 0)
+                                {{ $event->level }}
+                            @else
+                                <strong class="text-danger">0</strong>
+                            @endif
+                        </td>
                         <td>{{ date('m/d/y', strtotime($event->created_at)) }}</td>
                         <td>
                             <nobr>
-                            <a href="{{ URL::asset('admin/events/'.$event->id.'/edit') }}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
-                            <a data-toggle="modal" data-target="#deleteEvent" data-url="{{ URL::route('admin.events.destroy', $event->id) }}" class="btn btn-danger delete-event"><i class="glyphicon glyphicon-trash"></i></a>
+                                <a href="{{ URL::asset('admin/events/'.$event->id.'/edit') }}"
+                                   class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
+                                <a data-toggle="modal" data-target="#deleteEvent"
+                                   data-url="{{ URL::route('admin.events.destroy', $event->id) }}"
+                                   class="btn btn-danger delete-event"><i class="glyphicon glyphicon-trash"></i></a>
                             </nobr>
                         </td>
                     </tr>
@@ -49,7 +78,8 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel">Delete Event</h4>
                 </div>
                 <div class="modal-body">
@@ -70,8 +100,8 @@
 
 @section('scripts')
     <script>
-        $(document).ready(function() {
-            $('a.delete-event').click(function() {
+        $(document).ready(function () {
+            $('a.delete-event').click(function () {
                 $('#deleteEvent form').attr('action', $(this).data('url'));
             });
         });
