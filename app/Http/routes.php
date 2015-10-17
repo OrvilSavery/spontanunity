@@ -17,7 +17,7 @@ Route::get('/', 'PagesController@index');
 Route::get('thank-you', 'PagesController@confirm');
 
 //Admin Section
-Route::group(['prefix' => 'admin'], function(){
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
     //Admin Index
     Route::get('/', function(){ return redirect('admin/events'); });
