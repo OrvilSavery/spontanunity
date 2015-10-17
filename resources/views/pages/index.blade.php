@@ -2,19 +2,24 @@
 
 @section('content')
 
-    <div class="col-md-12 text-center logo-block">
-        <img src="{{ URL::asset('library/img/logo.png') }}" alt="Spontanunity | BETA">
+    <div class="banner">
+        <div class="container">
+            <div class="col-md-6 col-md-offset-3 text-center logo-block">
+                <img src="{{ URL::asset('library/img/logo.png') }}" alt="Spontanunity | BETA">
+            </div>
+        </div>
     </div>
-    <div class="col-md-6 col-md-offset-3 text-center headline">
-        <br/>
 
-        <h1 class="">Live Free | Live Intentionally</h1>
-
-        <p class="lead">
-            Break up the familiar routine in your day. Discover and learn about spontaneous events so all you have to do is have fun and live in the moment.
-        </p>
-        <div class="clearfix"></div>
-        <div class="search-bar col-md-12">
+    <div class="form-container">
+        <div class="container">
+            <div class="clearfix"></div>
+            <div class="search-bar col-md-6 col-md-offset-3">
+                <div class="headline text-center">
+                    <h1 class="">Live Free | Live Intentionally</h1>
+                    <p class="lead">
+                        Break up the familiar routine in your day. Discover and learn about spontaneous events so all you have to do is have fun and live in the moment.
+                    </p>
+                </div>
                 <form action="http://spontanuity.createsend.com/t/i/s/irdujr/" method="post" id="subForm" style="z-index:1000;">
                     <div class="col-md-12 col-sm-12 col-xs-12 input-lg form-group text-left">
                         <label for="fieldEmail">Email</label><br />
@@ -28,10 +33,12 @@
                     </div>
 
                 </form>
-            <div class="clearfix"></div>
-            <br/><br/>
+                <div class="clearfix"></div>
+                <br/><br/>
+            </div>
         </div>
     </div>
+
 
 @stop
 
