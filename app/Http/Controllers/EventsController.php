@@ -152,4 +152,14 @@ class EventsController extends Controller
 
         return redirect()->back()->with('deleted', 'event Deleted');
     }
+
+    /**
+     * @return mixed
+     * List Events (API)
+     */
+    public function listEvents()
+    {
+        $events = $this->event->orderby('created_at', 'desc')->get();
+        return $events;
+    }
 }

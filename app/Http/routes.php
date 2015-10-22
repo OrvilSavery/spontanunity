@@ -15,7 +15,7 @@
 Route::get('/', 'PagesController@index');
 //Confirmation Page
 Route::get('thank-you', 'PagesController@confirm');
-
+Route::get('events/list', 'EventsController@listEvents');
 //Admin Section
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
