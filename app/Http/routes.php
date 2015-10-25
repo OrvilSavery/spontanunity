@@ -11,36 +11,6 @@
 |
 */
 
-//Homepage
-Route::get('/', 'PagesController@index');
-//Confirmation Page
-Route::get('thank-you', 'PagesController@confirm');
-Route::get('events/list', 'EventsController@listEvents');
-//Admin Section
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
-
-    //Admin Index
-    Route::get('/', function(){ return redirect('admin/events'); });
-    //Events
-    Route::resource('events', 'EventsController');
-});
-
-//Send Email Address
-Route::get('emails/index', 'EmailsController@index');
-
-
-/**
- * SPECIAL FUNCTIONS
- */
-//Update Event Type Table
-Route::get('update-event-table', function(){
-    $events = \App\Event::all();
-    foreach($events as $event) {
-        if(! \App\EventType::where('name', $event->type)->first()) {
-            $type = new \App\EventType();
-            $type->name = $event->type;
-            $type->save();
-        }
-    }
-        return "Event Type Table Updated";
+Route::get('/', function () {
+    return view('welcome');
 });
