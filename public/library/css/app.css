@@ -252,6 +252,44 @@ form [type="submit"] {
 .Banner .Login:nth-child(2n + 1){
   clear: left;
 }
+.Login button[type="submit"] {
+  background: #fff;
+  border: 2px solid #467820;
+  color: #467820;
+}
+.Login button[type="submit"] span {
+  transition: all 0.2s ease-in-out;
+}
+.Login button[type="submit"] span.icon {
+  display: inline-block;
+  overflow: hidden;
+  width: inherit;
+}
+.Login button[type="submit"] span.text {
+  display: inline-block;
+  overflow: hidden;
+  width: 0px;
+}
+.Login button[type="submit"]:hover {
+  background: #a1ca81;
+  border: 2px solid #a1ca81;
+  color: #38601a;
+  padding: 10px 20px;
+  transition: all 0.2s ease-in-out;
+}
+.Login button[type="submit"]:hover span {
+  transition: all 0.2s ease-in-out;
+}
+.Login button[type="submit"]:hover span.icon {
+  display: inline-block;
+  overflow: hidden;
+  width: 0px;
+}
+.Login button[type="submit"]:hover span.text {
+  display: inline-block;
+  overflow: hidden;
+  width: inherit;
+}
 @media (max-width: 640px) {
   .Banner .Login {
     width: calc(99.99% * 1 - (30px - 30px * 1));
