@@ -9,7 +9,7 @@ html {
 }
 .container {
   *zoom: 1;
-  max-width: 1024px;
+  max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -25,7 +25,7 @@ html {
 .clear {
   clear: both;
 }
-@media (max-width: grid_md) {
+@media (max-width: 1024px) {
 }
 .Navigation {
   background: #467820;
@@ -89,8 +89,13 @@ html {
   flex: 1;
   text-align: right;
 }
+@media (max-width: 1100px) {
+  .Navigation {
+    padding: 0 20px;
+  }
+}
 .Banner {
-  height: 400px;
+  height: 200px;
   background: #f2f2f2;
   box-sizing: border-box;
   display: -webkit-flex;
@@ -100,18 +105,15 @@ html {
   -ms-flex-align: center;
   align-items: center;
 }
-.Banner__headline {
-  color: #000;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  height: 100%;
+body.home .Banner {
+  height: 400px;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
 }
 body.home .Banner__headline {
-  width: calc(99.99% * 6/12 - (30px - 30px * 6/12));
+  width: calc(99.99% * 1/2 - (30px - 30px * 1/2));
+  height: 100%;
 }
 body.home .Banner__headline:nth-child(n){
   float: left;
@@ -121,19 +123,50 @@ body.home .Banner__headline:nth-child(n){
 body.home .Banner__headline:last-child{
   margin-right: 0;
 }
-body.home .Banner__headline:nth-child(12n){
+body.home .Banner__headline:nth-child(2n){
   margin-right: 0;
 }
-body.home .Banner__headline:nth-child(12n + 1){
+body.home .Banner__headline:nth-child(2n + 1){
   clear: left;
 }
 .Banner__headline h1 {
-  width: 100%;
-  display: block;
+  font-weight: 200;
 }
 .Banner__headline p {
-  width: 100%;
-  display: block;
+  font-size: 1.25em;
+  line-height: 1.5;
+  font-weight: 200;
+}
+@media (max-width: 1100px) {
+  .Banner__headline {
+    box-sizing: border-box;
+    padding: 20px;
+  }
+}
+@media (max-width: 640px) {
+  .Banner {
+    height: inherit;
+  }
+  body.home .Banner {
+    height: inherit;
+  }
+  body.home .Banner__headline {
+    width: calc(99.99% * 1 - (30px - 30px * 1));
+  }
+  body.home .Banner__headline:nth-child(n){
+    float: left;
+    margin-right: 30px;
+    clear: none;
+  }
+  body.home .Banner__headline:last-child{
+    margin-right: 0;
+  }
+  body.home .Banner__headline:nth-child(undefinedn){
+    margin-right: 0;
+  }
+  body.home .Banner__headline:nth-child(undefinedn + 1){
+    clear: left;
+  }
 }
 form > div {
   width: calc(99.99% * 1 - (30px - 30px * 1));
@@ -197,12 +230,13 @@ form [type="submit"] {
 }
 .Login {
   background: #fff;
+  box-sizing: border-box;
   padding: 20px;
   border-radius: 5px;
   border: 1px solid #f0f0f0;
 }
 .Banner .Login {
-  width: calc(99.99% * 5/12 - (30px - 30px * 5/12));
+  width: calc(99.99% * 1/2 - (30px - 30px * 1/2));
 }
 .Banner .Login:nth-child(n){
   float: left;
@@ -212,11 +246,183 @@ form [type="submit"] {
 .Banner .Login:last-child{
   margin-right: 0;
 }
-.Banner .Login:nth-child(12n){
+.Banner .Login:nth-child(2n){
   margin-right: 0;
 }
-.Banner .Login:nth-child(12n + 1){
+.Banner .Login:nth-child(2n + 1){
   clear: left;
+}
+@media (max-width: 640px) {
+  .Banner .Login {
+    width: calc(99.99% * 1 - (30px - 30px * 1));
+  }
+  .Banner .Login:nth-child(n){
+    float: left;
+    margin-right: 30px;
+    clear: none;
+  }
+  .Banner .Login:last-child{
+    margin-right: 0;
+  }
+  .Banner .Login:nth-child(undefinedn){
+    margin-right: 0;
+  }
+  .Banner .Login:nth-child(undefinedn + 1){
+    clear: left;
+  }
+}
+.Actions {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.Actions__listItem {
+  border: 1px solid #eee;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100px;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.Actions__listItemHeading {
+  font-weight: 200;
+  font-size: 1.5em;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+.Actions__actions {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  height: 100px;
+  text-align: right;
+  line-height: 3;
+}
+.Actions__actions a {
+  color: #aaa;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+.Actions__actions a.choose {
+  background: #fff;
+  border: 2px solid #467820;
+  color: #467820;
+}
+.Actions__actions a.choose span {
+  transition: all 0.2s ease-in-out;
+}
+.Actions__actions a.choose span.icon {
+  display: inline-block;
+  overflow: hidden;
+  width: inherit;
+}
+.Actions__actions a.choose span.text {
+  display: inline-block;
+  overflow: hidden;
+  width: 0px;
+}
+.Actions__actions a.choose:hover {
+  background: #a1ca81;
+  border: 2px solid #a1ca81;
+  color: #38601a;
+  padding: 10px 20px;
+  transition: all 0.2s ease-in-out;
+}
+.Actions__actions a.choose:hover span {
+  transition: all 0.2s ease-in-out;
+}
+.Actions__actions a.choose:hover span.icon {
+  display: inline-block;
+  overflow: hidden;
+  width: 0px;
+}
+.Actions__actions a.choose:hover span.text {
+  display: inline-block;
+  overflow: hidden;
+  width: inherit;
+}
+.Actions__actions a.dismiss {
+  background: #fff;
+  border: 2px solid #ddc009;
+  color: #ddc009;
+}
+.Actions__actions a.dismiss span {
+  transition: all 0.2s ease-in-out;
+}
+.Actions__actions a.dismiss span.icon {
+  display: inline-block;
+  overflow: hidden;
+  width: inherit;
+}
+.Actions__actions a.dismiss span.text {
+  display: inline-block;
+  overflow: hidden;
+  width: 0px;
+}
+.Actions__actions a.dismiss:hover {
+  background: #e6da8c;
+  border: 2px solid #e6da8c;
+  color: #b19a07;
+  padding: 10px 20px;
+  transition: all 0.2s ease-in-out;
+}
+.Actions__actions a.dismiss:hover span {
+  transition: all 0.2s ease-in-out;
+}
+.Actions__actions a.dismiss:hover span.icon {
+  display: inline-block;
+  overflow: hidden;
+  width: 0px;
+}
+.Actions__actions a.dismiss:hover span.text {
+  display: inline-block;
+  overflow: hidden;
+  width: inherit;
+}
+.Actions__actions a.complete {
+  background: #467820;
+  border: 2px solid #fff;
+  color: #fff;
+  display: none;
+}
+.Actions__actions a.complete span {
+  transition: all 0.2s ease-in-out;
+}
+.Actions__actions a.complete span.icon {
+  display: inline-block;
+  overflow: hidden;
+  width: inherit;
+}
+.Actions__actions a.complete span.text {
+  display: inline-block;
+  overflow: hidden;
+  width: 0px;
+}
+.Actions__actions a.complete:hover {
+  background: #fff;
+  border: 2px solid #fff;
+  color: #ccc;
+  padding: 10px 20px;
+  transition: all 0.2s ease-in-out;
+}
+.Actions__actions a.complete:hover span {
+  transition: all 0.2s ease-in-out;
+}
+.Actions__actions a.complete:hover span.icon {
+  display: inline-block;
+  overflow: hidden;
+  width: 0px;
+}
+.Actions__actions a.complete:hover span.text {
+  display: inline-block;
+  overflow: hidden;
+  width: inherit;
 }
 
 /*# sourceMappingURL=app.css.map */

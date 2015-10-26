@@ -1,20 +1,35 @@
 .Banner
-  height 400px
+  height 200px
   background #f2f2f2
   box-sizing border-box
   display flex
   align-items center
+  body.home &
+    height 400px
+    align-content center
 
 .Banner__headline
-  color #000
-  display flex
-  align-items center
-  height 100%
   body.home &
-    lost-column 6/12
+    lost-column 1/2
+    height 100%
   h1
-    width 100%
-    display block
+    font-weight 200
   p
-    width 100%
-    display block
+    font-size 1.25em
+    line-height 1.5
+    font-weight: 200
+
+@media (max-width:grid_lg)
+   .Banner__headline
+      box-sizing border-box
+      padding 20px
+
+@media (max-width:grid_sm)
+  .Banner
+    height inherit
+    body.home &
+      height inherit
+
+  .Banner__headline
+    body.home &
+      lost-column 1

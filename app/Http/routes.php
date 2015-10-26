@@ -21,7 +21,14 @@ Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 
-//Redirect Home to Index
+//Index
 Route::get('/', function () {
-    return view('index');
+    return view(Auth::guest() ? 'index' : 'home');
+});
+
+Route::group(['before' => 'auth'], function(){
+    //Logged in Homepage
+    Route::get('home', function() {
+        return view('home');
+    });
 });

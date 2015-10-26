@@ -1,0 +1,35 @@
+.Actions
+  list-style-type none
+  padding 0
+  margin 0
+
+.Actions__listItem
+  border 1px solid #eee
+  display flex
+  height 100px
+  align-items flex-start
+  padding 20px
+  box-sizing border-box
+
+.Actions__listItemHeading
+  font-weight 200
+  font-size 1.5em
+  flex 1
+
+.Actions__actions
+  flex 1
+  height 100px
+  text-align right
+  line-height 3
+  a
+    color #aaa
+    text-decoration none
+    padding 10px 15px
+    border-radius 5px
+    &.choose
+      button_style(white, col_green)
+    &.dismiss
+      button_style(white, col_yellow)
+    &.complete
+      button_style(col_green, white)
+      display none

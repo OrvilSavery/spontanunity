@@ -1,7 +1,13 @@
 .Login
   background white
+  box-sizing border-box
   padding 20px
   border-radius 5px
   border 1px solid #f0f0f0
   .Banner &
-    lost-column 5/12
+    lost-column 1/2
+
+@media (max-width:grid_sm)
+  .Login
+    .Banner &
+      lost-column 1
