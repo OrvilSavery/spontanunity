@@ -1,4 +1,7 @@
 var elixir = require('laravel-elixir');
+var postStylus = require('poststylus');
+
+require('laravel-elixir-stylus');
 
 /*
  |--------------------------------------------------------------------------
@@ -12,5 +15,7 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('app.scss');
+    mix.stylus('app.styl', 'public/library/css/app.css');
 });
+
+
