@@ -1,0 +1,40 @@
+.Navigation
+  background col_green
+  color white
+  .container
+    height 64px
+    display flex
+    align-items center
+  a
+    color white
+    text-decoration none
+
+.Navigation__brand
+  flex 1
+  img
+    max-width 157px
+    width 100%
+
+.Navigation__links
+  flex 2
+  ul
+    display flex
+    width 100%
+    list-style-type none
+    margin 0
+    padding 0
+  li
+    flex 1
+    text-align center
+    &.brand-mark
+      flex 3
+    &.account
+      flex 3
+
+.Navigation__account
+  flex 1
+  text-align right
+
+@media (max-width:grid_lg)
+  .Navigation
+    padding 0 20px

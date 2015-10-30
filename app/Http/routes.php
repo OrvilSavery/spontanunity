@@ -11,36 +11,24 @@
 |
 */
 
-//Homepage
-Route::get('/', 'PagesController@index');
-//Confirmation Page
-Route::get('thank-you', 'PagesController@confirm');
-Route::get('events/list', 'EventsController@listEvents');
-//Admin Section
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
+// Authentication routes...
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
-    //Admin Index
-    Route::get('/', function(){ return redirect('admin/events'); });
-    //Events
-    Route::resource('events', 'EventsController');
+// Registration routes...
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+
+//Index
+Route::get('/', function () {
+    return view(Auth::guest() ? 'index' : 'home');
 });
 
-//Send Email Address
-Route::get('emails/index', 'EmailsController@index');
-
-
-/**
- * SPECIAL FUNCTIONS
- */
-//Update Event Type Table
-Route::get('update-event-table', function(){
-    $events = \App\Event::all();
-    foreach($events as $event) {
-        if(! \App\EventType::where('name', $event->type)->first()) {
-            $type = new \App\EventType();
-            $type->name = $event->type;
-            $type->save();
-        }
-    }
-        return "Event Type Table Updated";
+Route::group(['before' => 'auth'], function(){
+    //Logged in Homepage
+    Route::get('home', function() {
+        return view('home');
+    });
 });
