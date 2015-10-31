@@ -9,14 +9,13 @@
                 <div class="Page__header">
                     <h1>Welcome {{ Auth::user()->first_name . ' ' . Auth::user()->last_name }}
                         @if(\App\EventUser::where('user_id', Auth::user()->id)->where('chosen', 1)->first())
-                        <small><a href="{{ URL::to('home') }}">See Chosen Actions</a></small>
+                            <small><a href="{{ URL::to('home') }}">See Chosen Actions</a></small>
                         @endif
                     </h1>
 
                 </div>
-                @include('partials.actions', ['events' => $events])
+                @include('partials.complete', ['events' => $events])
                 <div class="clear"></div>
-                <a href="{{ URL::current() }}">Refresh Choices</a>
             </div>
         </div>
     </div>

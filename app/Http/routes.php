@@ -32,13 +32,15 @@ Route::get('/', function () {
 Route::group(['before' => 'auth'], function () {
     //Logged in Homepage
     Route::get('home', function () {
-        return view('home');
+        $events = \App\Event::all();
+        return view('home', compact('events'));
     });
 
     //Actions Functionality
     Route::group(['prefix' => 'actions'], function () {
         get('/', 'ActionsController@index');
-        post('choose/{id}', ['as' => 'actions.choose', 'uses' => 'ActionsController@choose']);
+        get('completed', 'ActionsController@completed');
+        get('choose/{id}', ['as' => 'actions.choose', 'uses' => 'ActionsController@choose']);
         post('dismiss/{id}', ['as' => 'actions.dismiss', 'uses' => 'ActionsController@dismiss']);
         post('complete/{id}', ['as' => 'actions.complete', 'uses' => 'ActionsController@complete']);
     });

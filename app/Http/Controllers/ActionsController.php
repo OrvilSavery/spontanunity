@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ActionExperience;
 use App\Dismissed;
 use App\Event;
 use App\EventUser;
@@ -30,6 +31,10 @@ class ActionsController extends Controller
      * @var EventUser
      */
     private $eventUser;
+    /**
+     * @var ActionExperience
+     */
+    private $actionExperience;
 
 
     /**
@@ -38,22 +43,38 @@ class ActionsController extends Controller
      * @param User $user
      * @param Dismissed $dismissed
      * @param EventUser $eventUser
+     * @param ActionExperience $actionExperience
      */
-    public function __construct(Event $event, User $user, Dismissed $dismissed, EventUser $eventUser)
+    public function __construct(Event $event, User $user, Dismissed $dismissed, EventUser $eventUser, ActionExperience $actionExperience)
     {
         $this->event = $event;
         $this->user = $user;
         $this->dismissed = $dismissed;
         $this->eventUser = $eventUser;
+        $this->actionExperience = $actionExperience;
     }
 
+    /**
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         $events = $this->event->where('name', '!=', '')->where('type', '!=', '')->orderByRaw("RAND()")->get();
         $iterator = 0;
         return view('actions.index', compact('events', 'iterator'));
     }
-    
+
+    public function completed()
+    {
+        $events = $this->event->where('name', '!=', '')->where('type', '!=', '')->orderByRaw("RAND()")->get();
+        return view('actions.completed', compact('events'));
+    }
+
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function choose(Request $request, $id)
     {
         $event = $this->event->find($id);
@@ -65,9 +86,14 @@ class ActionsController extends Controller
         $action->event_id = $event->id;
         $action->chosen = 1;
         $action->save();
-        return back()->with('success', 'Action Chosed!');
+        return back()->with('success', 'Action Chosen!');
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function dismiss(Request $request, $id)
     {
         $event = $this->event->find($id);
@@ -88,7 +114,11 @@ class ActionsController extends Controller
         return back()->with('success', 'Action Dismissed!');
     }
 
-    public function complete($id)
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function complete(Request $request, $id)
     {
         $event = $this->event->find($id);
         $action = new EventUser;
@@ -99,9 +129,20 @@ class ActionsController extends Controller
         $action->event_id = $event->id;
         $action->complete = 1;
         $action->save();
+
+        $experience = new ActionExperience;
+        $experience->event_id = $event->id;
+        $experience->user_id = Auth::user()->id;
+        $experience->experience = $request['experience'];
+        $experience->save();
         return back()->with('success', 'Action Completed!');
     }
 
+    /**
+     * @param $event_id
+     * @param $user_id
+     * @return EventUser
+     */
     public function checkExistingAction($event_id, $user_id)
     {
         $action = new EventUser;
@@ -111,8 +152,4 @@ class ActionsController extends Controller
         return $action;
     }
 
-    public function createActionList()
-    {
-
-    }
 }
