@@ -6,7 +6,7 @@
 
     <div class="Banner">
 
-        <div class="container">
+        <div class="Container">
             <div class="Banner__headline">
                 <h1>Live Free | Live Intentionally</h1>
 

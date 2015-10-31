@@ -23,12 +23,25 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 //Index
 Route::get('/', function () {
-    return view(Auth::guest() ? 'index' : 'home');
+    if (Auth::check()) {
+        return redirect('home');
+    }
+    return view('index');
 });
 
-Route::group(['before' => 'auth'], function(){
+Route::group(['before' => 'auth'], function () {
     //Logged in Homepage
-    Route::get('home', function() {
+    Route::get('home', function () {
         return view('home');
     });
+
+    //Actions Functionality
+    Route::group(['prefix' => 'actions'], function () {
+        get('/', 'ActionsController@index');
+        post('choose/{id}', ['as' => 'actions.choose', 'uses' => 'ActionsController@choose']);
+        post('dismiss/{id}', ['as' => 'actions.dismiss', 'uses' => 'ActionsController@dismiss']);
+        post('complete/{id}', ['as' => 'actions.complete', 'uses' => 'ActionsController@complete']);
+    });
 });
+
+

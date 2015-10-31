@@ -1,5 +1,5 @@
 <header class="Navigation">
-    <div class="container">
+    <div class="Container">
         <a href="" class="Navigation__brand"><img src="{{ URL::asset('library/img/logo.png') }}" alt=""></a>
         <nav class="Navigation__links">
             {{--<ul>--}}

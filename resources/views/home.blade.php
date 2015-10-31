@@ -3,9 +3,14 @@
 @section('content')
     @include('partials.banner')
 
-    <div class="container">
-        <div class="page-wrapper">
-            @include('partials.actions', ['actions' => ["Get Juggle With It ", "Let's Reconnect", "Tarzan Ain't Got Nothing On Me", "Time To Freeze"]])
+    <div class="Container">
+        <div class="Wrapper">
+            <div class="Page">
+                <div class="Page__header">
+                    <h1>Welcome {{ Auth::user()->first_name . ' ' . Auth::user()->last_name }}</h1>
+                </div>
+                <a href="{{ URL::to('actions') }}">Choose Actions</a>
+            </div>
         </div>
     </div>
 
