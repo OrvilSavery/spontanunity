@@ -56,4 +56,13 @@ class EmailsController extends Controller
 
     }
 
+    public function sendEvents(){
+//        $events = Controller::call('EventsController@getAllEvents');
+
+        //random selects and event
+        //records the actual event sent to the event log database
+        //picks the appropriate template to send the event
+        return view('emails.event');
+    }
+
 }
