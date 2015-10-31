@@ -3,5 +3,7 @@
 Homestead.yaml
 Homestead.json
 .env
-.idea
-config.codekit
+
+.idea/vcs.xml
+
+.idea/vcs.xml
