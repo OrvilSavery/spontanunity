@@ -108,11 +108,7 @@
 
             <!-- Visually Hidden Preheader Text : BEGIN -->
             <div style="display:none;font-size:1px;color:#222222;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide: all;">
-                Thank you for being a part of our beta tester community! Here are a few events to get you started:
-                @foreach($events as $event)
-
-                        <a class="list-group-item" data-type="{{ $eventType->name }}">{{ $eventType->name }}</a>
-                @endforeach
+                This is just the beginning...or is it?
             </div>
             <!-- Visually Hidden Preheader Text : END -->
 
@@ -138,10 +134,6 @@
                                     <img src="{{ URL::asset('library/img/logo.png') }}" alt="alt text" width="200"
                                          border="0" align="left">
                                 </td>
-                                <td valign="middle"
-                                    style="padding:10px 10px; text-align:right; line-height:1.1; font-family: sans-serif; font-size: 13px; color: #ffffff;">
-                                    Live Free | Live Intentionally
-                                </td>
                             </tr>
                         </table>
                         <!-- Logo + Links : END -->
@@ -149,15 +141,25 @@
                         <!-- Main Email Body : BEGIN -->
                         <table border="0" width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="border:1px solid #326610;">
                             <tr align="center" bgcolor="#264811">
-                                <td style="padding: 0% 4%; font-family: sans-serif; font-size: 18px; line-height: 1.3; color: #ffffff;">
-                                    <h1>Welcome to Spontanuity! Subscription Confirmed.</h1>
+
+                                <td valign="middle"
+                                    style="padding:10px 10px; text-align:left; line-height:1.1; font-family: sans-serif; font-size: 13px; color: #ffffff;">
+                                    <h1>This is just the beginning...or is it?</h1>
+
+                                    <p style="padding: 0px 20px 0px 40px;">You guessed it! This is your first event. But before you embark on this mission
+
+                                    we wanted to take a second to say thanks and that we’re looking forward to your
+
+                                    input.
+                                    </p>
+                                    <p style="padding: 0px 20px 0px 40px;">Now your mission if you choose to accept it is...</p>
                                 </td>
                             </tr>
+
                             <tr bgcolor="#2D5712" align="center"
                                 style="background:url({{ URL::to('library/img/emails/bg-body.jpg') }}) top center;background-size:100% auto">
                                 <td style="padding:4%; font-family:sans-serif;font-size:18px; line-height:1.3;color:#fff">
-                                    <p>Hey! Welcome to Spontanuity.<br/> <strong>The platform that helps you to break up<br/>
-                                            the familiar routine in your day.</strong></p>
+                                    <h1>Getting juggle with it</h1>
                                 </td>
                             </tr>
                             <!-- Single Fluid Image, No Crop : END -->
@@ -165,51 +167,33 @@
                             <!-- Full Width, Fluid Column : BEGIN -->
                             <tr bgcolor="#A8D588">
                                 <td style="padding: 4%; font-family: sans-serif; font-size: 16px; line-height: 1.3; color: #2D5712;">
-                                    We’re, excited to have you as part of the spontanuity community and as a beta
-                                    tester. <strong>As a beta tester, here’s what you can expect from us</strong>:
+
                                 </td>
                             </tr>
                             <!-- Full Width, Fluid Column : END -->
 
                             <!-- 2 x 2 grid : BEGIN -->
-                            <tr>
-                                <td>
-                                    <table border="0" width="100%" cellpadding="0" cellspacing="0" align="center">
-                                        <tr align="center">
-                                            <td width="15%"
-                                                style="font-size: 18px;line-height: 0; font-family: sans-serif;color:#467720"
-                                                bgcolor="#A8D588"><h1>1.</h1></td>
-                                            <td valign="top" width="70%"
-                                                style="padding: 2% 4%; font-family: sans-serif; font-size: 15px; line-height: 1.3; color: #666666; text-align: left;border-bottom:1px solid #ccc">
-                                                <h3>First to get updates on our launch and new things happening
-                                                    with us. <i>(get excited!)</i></h3>
-                                            </td>
-                                            <td width="15%" style="font-size: 0;line-height: 0;">&nbsp;</td>
-                                        </tr>
-                                        <tr align="center">
-                                            <td width="15%"
-                                                style="font-size: 18px;line-height: 0; font-family: sans-serif;color:#467720"
-                                                bgcolor="#A8D588"><h1>2.</h1></td>
-                                            <td valign="top" width="70%"
-                                                style="padding: 2% 4%; font-family: sans-serif; font-size: 15px; line-height: 1.3; color: #666666; text-align: left;border-bottom:1px solid #ccc">
-                                                <h3>The unique ability to be a part of the Spontanuity community and
-                                                    joining others looking to expand and explore the world around
-                                                    them. <i>(even more exciting!)</i></h3>
-                                            </td>
-                                            <td width="15%" style="font-size: 0;line-height: 0;">&nbsp;</td>
-                                        </tr>
-                                        <tr align="center">
-                                            <td width="15%"
-                                                style="font-size: 18px;line-height: 0; font-family: sans-serif;color:#467720"
-                                                bgcolor="#A8D588"><h1>3.</h1></td>
-                                            <td valign="top" width="70%"
-                                                style="padding: 2% 4%; font-family: sans-serif; font-size: 15px; line-height: 1.3; color: #666666; text-align: left;">
-                                                <h3>Exclusive access to help improve and impact the development of
-                                                    Spontanuity to make it the best platform possible <i>(lose your mind!)</i></h3>
-                                            </td>
-                                            <td width="15%" style="font-size: 0;line-height: 0;">&nbsp;</td>
-                                        </tr>
-                                    </table>
+                            <tr align="center">
+                                <td style="padding:4%; font-family:sans-serif;font-size:18px; line-height:1.3;">
+                                    <p align="center">Teach yourself how to juggle. All you really need is three balls and a <a href="https://www.youtube.com/watch?v=5nF-qQv4xwU" target="_blank">video</a>
+
+                                        showing you how to do it. It's not hard to learn plus, you can bust it out as a
+
+                                        party trick on occasion (trust us, you can always get people to smile if you
+
+                                        juggle three apples in the kitchen while preparing something...we don't
+
+                                        recommend knives). #spontanuity.
+                                    </p>
+                                    <p align="center" style="font-size:12px;">
+                                        <img src="{{URL::to('library/img/emails/level_4.png')}}" height="72" width="105" />
+                                    </p>
+                                    <p align="center">
+                                        <input type="image" name="in" src="{{URL::to('library/img/emails/in.png')}}" height="55" width="52">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="image" name="out" src="{{URL::to('library/img/emails/out.png')}}" height="55" width="52">
+                                    </p>
+                                </td>
                                 </td>
                             </tr>
                             <!-- 2 x 2 grid : END -->
@@ -217,17 +201,9 @@
                             <!-- Full Width, Fluid Column : BEGIN -->
                             <tr bgcolor="#A8D588">
                                 <td style="padding: 2% 4%; font-family: sans-serif; font-size: 14px; line-height: 1.3; color: #2D5712;">
-                                    We’ve set out to make Spontanuity more than just a platform for doing cool things.
-                                    It’s about a mindset, a way of life, and most importantly <strong>a
-                                        community</strong>.
-                                </td>
-                            </tr>
-
-                            <!-- Full Width, Fluid Column : BEGIN -->
-                            <tr bgcolor="#A8D588">
-                                <td style="padding: 2% 4%; font-family: sans-serif; font-size: 14px; line-height: 1.3; color: #2D5712;">
-                                    So if you ever have suggestions about how to make it better, things we should be
-                                    watching out for, or just an awesome story, don’t hesitate to reach out to us at:
+                                    <p>Let us know how it goes!</p>
+                                    <p>Team Spontanuity</p>
+                                    <p>If you have questions or suggestions don’t hesitate to reach us at:</p>
                                 </td>
                             </tr>
 
