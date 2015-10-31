@@ -6,6 +6,7 @@ html {
   padding: 0;
   margin: 0;
   font-family: "Helvetica", sans-serif;
+  background: #467820;
 }
 .container {
   *zoom: 1;
@@ -22,10 +23,79 @@ html {
   display: table;
   clear: both;
 }
+.page-wrapper {
+  *zoom: 1;
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #f9f8f3;
+  margin-top: -90px;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+.page-wrapper:before{
+  content: '';
+  display: table;
+}
+.page-wrapper:after{
+  content: '';
+  display: table;
+  clear: both;
+}
+.hidden {
+  display: none !important;
+}
+.disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+}
 .clear {
   clear: both;
 }
-@media (max-width: 1024px) {
+.ButtonSM__choose {
+  background: url("../img/map-buttons-sm.png");
+  background-size: 126px 116px;
+  width: 31px;
+  height: 29px;
+  display: inline-block;
+  text-indent: -9999px;
+  background-position: -62px -87px;
+}
+.ButtonSM__choose:hover {
+  background-position: -62px 0px;
+}
+.ButtonSM__choose:active {
+  background-position: -62px -29px;
+}
+.ButtonSM__complete {
+  background: url("../img/map-buttons-sm.png");
+  background-size: 126px 116px;
+  width: 31px;
+  height: 29px;
+  display: inline-block;
+  text-indent: -9999px;
+  background-position: 0px -87px;
+}
+.ButtonSM__complete:hover {
+  background-position: 0px 0px;
+}
+.ButtonSM__complete:active {
+  background-position: 0px -29px;
+}
+.ButtonSM__dismiss {
+  background: url("../img/map-buttons-sm.png");
+  background-size: 126px 116px;
+  width: 31px;
+  height: 29px;
+  display: inline-block;
+  text-indent: -9999px;
+  background-position: -93px -87px;
+}
+.ButtonSM__dismiss:hover {
+  background-position: -93px 0px;
+}
+.ButtonSM__dismiss:active {
+  background-position: -93px -29px;
 }
 .Navigation {
   background: #467820;
@@ -256,6 +326,8 @@ form [type="submit"] {
   background: #fff;
   border: 2px solid #467820;
   color: #467820;
+  padding: 10px 20px;
+  border-radius: 5px;
 }
 .Login button[type="submit"] span {
   transition: all 0.2s ease-in-out;
@@ -313,154 +385,50 @@ form [type="submit"] {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.15);
+}
+.page-wrapper .Actions.centered {
+  *zoom: 1;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.page-wrapper .Actions.centered:before{
+  content: '';
+  display: table;
+}
+.page-wrapper .Actions.centered:after{
+  content: '';
+  display: table;
+  clear: both;
 }
 .Actions__listItem {
-  border: 1px solid #eee;
+  border: 1px solid #f0ebd1;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100px;
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
-  align-items: flex-start;
-  padding: 20px;
+  height: 54px;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0px;
   box-sizing: border-box;
+  background: #fff;
 }
 .Actions__listItemHeading {
   font-weight: 200;
-  font-size: 1.5em;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
+  font-size: 1.125em;
+  -webkit-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
 }
 .Actions__actions {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  height: 100px;
-  text-align: right;
+  padding: 0px 10px;
   line-height: 3;
-}
-.Actions__actions a {
-  color: #aaa;
-  text-decoration: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-}
-.Actions__actions a.choose {
-  background: #fff;
-  border: 2px solid #467820;
-  color: #467820;
-}
-.Actions__actions a.choose span {
-  transition: all 0.2s ease-in-out;
-}
-.Actions__actions a.choose span.icon {
-  display: inline-block;
-  overflow: hidden;
-  width: inherit;
-}
-.Actions__actions a.choose span.text {
-  display: inline-block;
-  overflow: hidden;
-  width: 0px;
-}
-.Actions__actions a.choose:hover {
-  background: #a1ca81;
-  border: 2px solid #a1ca81;
-  color: #38601a;
-  padding: 10px 20px;
-  transition: all 0.2s ease-in-out;
-}
-.Actions__actions a.choose:hover span {
-  transition: all 0.2s ease-in-out;
-}
-.Actions__actions a.choose:hover span.icon {
-  display: inline-block;
-  overflow: hidden;
-  width: 0px;
-}
-.Actions__actions a.choose:hover span.text {
-  display: inline-block;
-  overflow: hidden;
-  width: inherit;
-}
-.Actions__actions a.dismiss {
-  background: #fff;
-  border: 2px solid #ddc009;
-  color: #ddc009;
-}
-.Actions__actions a.dismiss span {
-  transition: all 0.2s ease-in-out;
-}
-.Actions__actions a.dismiss span.icon {
-  display: inline-block;
-  overflow: hidden;
-  width: inherit;
-}
-.Actions__actions a.dismiss span.text {
-  display: inline-block;
-  overflow: hidden;
-  width: 0px;
-}
-.Actions__actions a.dismiss:hover {
-  background: #e6da8c;
-  border: 2px solid #e6da8c;
-  color: #b19a07;
-  padding: 10px 20px;
-  transition: all 0.2s ease-in-out;
-}
-.Actions__actions a.dismiss:hover span {
-  transition: all 0.2s ease-in-out;
-}
-.Actions__actions a.dismiss:hover span.icon {
-  display: inline-block;
-  overflow: hidden;
-  width: 0px;
-}
-.Actions__actions a.dismiss:hover span.text {
-  display: inline-block;
-  overflow: hidden;
-  width: inherit;
-}
-.Actions__actions a.complete {
-  background: #467820;
-  border: 2px solid #fff;
-  color: #fff;
-  display: none;
-}
-.Actions__actions a.complete span {
-  transition: all 0.2s ease-in-out;
-}
-.Actions__actions a.complete span.icon {
-  display: inline-block;
-  overflow: hidden;
-  width: inherit;
-}
-.Actions__actions a.complete span.text {
-  display: inline-block;
-  overflow: hidden;
-  width: 0px;
-}
-.Actions__actions a.complete:hover {
-  background: #fff;
-  border: 2px solid #fff;
-  color: #ccc;
-  padding: 10px 20px;
-  transition: all 0.2s ease-in-out;
-}
-.Actions__actions a.complete:hover span {
-  transition: all 0.2s ease-in-out;
-}
-.Actions__actions a.complete:hover span.icon {
-  display: inline-block;
-  overflow: hidden;
-  width: 0px;
-}
-.Actions__actions a.complete:hover span.text {
-  display: inline-block;
-  overflow: hidden;
-  width: inherit;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: left;
 }
 
 /*# sourceMappingURL=app.css.map */

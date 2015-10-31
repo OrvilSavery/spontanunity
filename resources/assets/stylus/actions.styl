@@ -2,34 +2,26 @@
   list-style-type none
   padding 0
   margin 0
+  box-shadow 0px 2px 5px rgba(0,0,0,.15)
+  .page-wrapper &.centered
+    lost-center grid_sm
 
 .Actions__listItem
-  border 1px solid #eee
+  border 1px solid #f0ebd1
   display flex
-  height 100px
-  align-items flex-start
-  padding 20px
+  height 54px
+  align-items center
+  padding 0px
   box-sizing border-box
+  background white
 
 .Actions__listItemHeading
   font-weight 200
-  font-size 1.5em
-  flex 1
+  font-size 1.125em
+  flex 2
 
 .Actions__actions
-  flex 1
-  height 100px
-  text-align right
+  padding 0px 10px
   line-height 3
-  a
-    color #aaa
-    text-decoration none
-    padding 10px 15px
-    border-radius 5px
-    &.choose
-      button_style(white, col_green)
-    &.dismiss
-      button_style(white, col_yellow)
-    &.complete
-      button_style(col_green, white)
-      display none
+  display flex
+  text-align left

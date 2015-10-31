@@ -3,13 +3,25 @@ body, html
   padding 0
   margin 0
   font-family "Helvetica", sans-serif
+  background col_green
 
 .container
   lost-center grid_lg
 
+.page-wrapper
+  lost-center grid_md
+  background col_offwhite
+  margin-top -90px
+  padding 40px 20px
+  box-sizing border-box
+
+.hidden
+  display none !important
+
+.disabled
+  opacity .5 !important
+  cursor not-allowed !important
+
 .clear
   clear both
 
-@media (max-width:grid_md)
-  padding 0 20px
-  box-sizing border-box
