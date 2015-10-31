@@ -9,10 +9,9 @@
                 <button class="ButtonSM__choose">Choose</button>
                 {!! Form::close() !!}
                 {!! Form::open(['route' => ['actions.complete', $event->id], 'id' => 'choose']) !!}
-                <a href="{{ URL::route('actions.complete', $event->id) }}" class="ButtonSM__complete hidden">Complete</a>
+                <button class="ButtonSM__complete hidden">Complete</button>
                 {!! Form::close() !!}
-                {!! Form::open(['route' => ['actions.dismiss', $event->id], 'id' => 'choose']) !!}
-                <a href="{{ URL::route('actions.dismiss', $event->id) }}" class="ButtonSM__dismiss">Dismiss</a>
+                <a data-url="{{ URL::route('actions.dismiss', $event->id) }}" class="ButtonSM__dismiss">Dismiss</a>
             </div>
             <h1 class="Actions__listItemHeading">{{ $event->name }}</h1>
         </li>

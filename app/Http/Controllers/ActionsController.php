@@ -68,7 +68,7 @@ class ActionsController extends Controller
         return back()->with('success', 'Action Chosed!');
     }
 
-    public function dismiss($id)
+    public function dismiss(Request $request, $id)
     {
         $event = $this->event->find($id);
         $action = new EventUser;
@@ -79,6 +79,12 @@ class ActionsController extends Controller
         $action->event_id = $event->id;
         $action->dismissed = 1;
         $action->save();
+
+        $dismissal = new Dismissed;
+        $dismissal->event_id = $event->id;
+        $dismissal->user_id = Auth::user()->id;
+        $dismissal->reason = $request['reason'];
+        $dismissal->save();
         return back()->with('success', 'Action Dismissed!');
     }
 

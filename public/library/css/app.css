@@ -451,6 +451,7 @@ form [type="submit"] {
   background: rgba(0,0,0,0.6);
   top: 0;
   transition: all 0.5s ease-in;
+  display: none;
 }
 .Modal__content {
   background: #fff;
