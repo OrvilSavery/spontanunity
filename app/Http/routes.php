@@ -46,4 +46,4 @@ Route::group(['before' => 'auth'], function () {
 
 
 //send email with initial event
-Route::get('emails/events','EmailsController@sendEvents');
+Route::get('emails/events','EventEmailsController@index');
