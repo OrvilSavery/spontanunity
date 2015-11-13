@@ -1,25 +1,27 @@
-@if(Auth::guest())
-    <div class="Login">
-        <form method="POST" action="{{ URL::to('auth/login') }}" class="Login__form">
+<div class="panel panel-default">
+    <div class="panel-body">
+        <form method="POST" action="{{ URL::to('login') }}">
             {!! csrf_field() !!}
 
-            <div>
+
+            <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" name="email" value="{{ old('email') }}">
+                <input type="email" name="email" value="{{ old('email') }}" class="form-control">
             </div>
 
-            <div>
+            <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password">
+                <input type="password" name="password" id="password" class="form-control">
             </div>
 
-            <div>
+            <div class="form-group">
                 <input type="checkbox" name="remember"> <label for="remember">Remember Me</label>
             </div>
 
             <div>
-                <button type="submit">Login</button>
+                {!! Form::submit('Login', ['class' => 'btn btn-primary']) !!}
             </div>
+
         </form>
     </div>
-@endif
+</div>

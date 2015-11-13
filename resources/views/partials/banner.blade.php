@@ -1,7 +1,6 @@
-<div class="Banner">
+<div class="banner text-center">
     <div class="container">
-        <div class="Banner__headline">
-
-        </div>
+        <h1>{{ $user }}</h1>
+        <p class="lead">{{ $message }}</p>
     </div>
 </div>

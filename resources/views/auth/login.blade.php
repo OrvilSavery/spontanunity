@@ -1,4 +1,4 @@
-<form method="POST" action="{{ URL::to('auth/login') }}">
+<form method="POST" action="{{ URL::to('login') }}">
     {!! csrf_field() !!}
 
     <div>

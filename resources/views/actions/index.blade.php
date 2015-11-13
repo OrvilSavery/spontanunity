@@ -3,10 +3,10 @@
 @section('content')
     @include('partials.banner')
 
-    <div class="Container">
-        <div class="Wrapper">
-            <div class="Page">
-                <div class="Page__header">
+    <div class="banner">
+        <div class="container">
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <div class="col-md-12 text-center">
                     <h1>Welcome {{ Auth::user()->first_name . ' ' . Auth::user()->last_name }}
                         @if(\App\EventUser::where('user_id', Auth::user()->id)->where('chosen', 1)->first())
                         <small><a href="{{ URL::to('home') }}">See Chosen Actions</a></small>
@@ -14,10 +14,13 @@
                     </h1>
 
                 </div>
-                @include('partials.actions', ['events' => $events])
+                <div class="col-md-10 col-md-offset-1">
+                    @include('partials.actions', ['events' => $events])
+                    <div class="clearfix"></div>
+                    <a href="{{ URL::current() }}">Refresh Choices</a>
+                </div>
                 <div class="clear"></div>
-                <a href="{{ URL::current() }}">Refresh Choices</a>
-            </div>
+
         </div>
     </div>
 

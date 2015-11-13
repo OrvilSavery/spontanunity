@@ -12,8 +12,8 @@
 */
 
 // Authentication routes...
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('login', 'Auth\AuthController@getLogin');
+Route::post('login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 // Registration routes...
@@ -23,18 +23,20 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 //Index
 Route::get('/', function () {
-    if (Auth::check()) {
-        return redirect('home');
+    if(Auth::check()) {
+        if(\App\Application::where('user_id', Auth::user()->id)->first()) {
+            return 'logged user views';
+        } else {
+            return view('join.index');
+        }
     }
     return view('index');
 });
 
-Route::group(['before' => 'auth'], function () {
-    //Logged in Homepage
-    Route::get('home', function () {
-        $events = \App\Event::all();
-        return view('home', compact('events'));
-    });
+Route::group(['middleware' => 'auth'], function () {
+
+
+    Route::resource('join', 'JoinController');
 
     //Actions Functionality
     Route::group(['prefix' => 'actions'], function () {

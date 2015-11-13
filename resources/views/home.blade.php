@@ -3,10 +3,10 @@
 @section('content')
     @include('partials.banner')
 
-    <div class="Container">
-        <div class="Wrapper">
-            <div class="Page">
-                <div class="Page__header">
+    <div class="banner">
+        <div class="container">
+            <div class="col-md-8 col-md-offset-2">
+                <div>
                     <h1>Welcome {{ Auth::user()->first_name . ' ' . Auth::user()->last_name }}
                         @if(\App\EventUser::where('user_id', Auth::user()->id)->where('complete', 1)->first())
                         <small><a href="{{ URL::to('actions/completed') }}">See Completed Actions</a></small>

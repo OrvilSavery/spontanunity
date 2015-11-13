@@ -1,0 +1,32 @@
+body {
+  background:url(../img/bg-repeat.jpg) repeat top center;
+}
+
+.banner {
+  background: #f2f2f2;
+  height:300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  body.home & {
+    min-height: 500px;
+    height: 100vh;
+    background: url(../img/bg-body.jpg) no-repeat top center;
+    -webkit-background-size: cover;
+    background-size: cover;
+  }
+}
+
+//Homepage
+.homepage-banner-headline {
+  background: rgba(255, 255, 255, .8);
+  //background: rgba(55, 102, 25, .8);
+  text-align: center;
+  border-radius: 20px;
+  padding: 20px 20px 30px;
+}
+
+//Onboarding
+.application-form {
+  margin-top:-80px;
+}
