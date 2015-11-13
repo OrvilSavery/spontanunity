@@ -18,7 +18,7 @@
                 <p>Break up the familiar routine in your day. Discover and learn about spontaneous events so all you
                     have to do is have fun and live in the moment.</p>
                 <a data-toggle="modal" data-target="#register" class="btn btn-primary btn-lg">Sign Up Now</a><br><br>
-                <small>Already a user? <a data-toggle="modal" data-target="#login">login</a></small>
+                <small>Already a user?<br> <a data-toggle="modal" data-target="#login" class="btn btn-default btn-xs text-primary">login</a></small>
             </div>
         </div>
 
