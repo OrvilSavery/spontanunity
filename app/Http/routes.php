@@ -23,32 +23,23 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::get('home', function(){ return redirect('/'); });
 
 //Index
-Route::get('/', function () {
-    if(Auth::check()) {
-        if(\App\Application::where('user_id', Auth::user()->id)->first()) {
-            return 'logged user views';
-        } else {
-            return view('join.index');
-        }
-    }
-    return view('index');
-});
+Route::get('/', 'PageController@index');
 
 Route::group(['middleware' => 'auth'], function () {
 
+    get('dashboard', 'PageController@dashboard');
 
-    Route::resource('join', 'JoinController');
-
-    //Actions Functionality
-    Route::group(['prefix' => 'actions'], function () {
-        get('/', 'ActionsController@index');
-        get('completed', 'ActionsController@completed');
-        get('choose/{id}', ['as' => 'actions.choose', 'uses' => 'ActionsController@choose']);
-        post('dismiss/{id}', ['as' => 'actions.dismiss', 'uses' => 'ActionsController@dismiss']);
-        post('complete/{id}', ['as' => 'actions.complete', 'uses' => 'ActionsController@complete']);
+    Route::group(['prefix' => 'join'], function() {
+        get('categories', 'JoinController@categories');
+        Route::resource('/', 'JoinController');
     });
+    Route::resource('categoryAccount', 'CategoryAccountController');
+    Route::group(['prefix' => 'account'], function() {
+        Route::resource('/', 'AccountController');
+    });
+    //Action Function
+    Route::resource('action', 'ActionController');
 });
 
-
 //send email with initial event
-Route::get('emails/events','EventEmailsController@index');
+get('emails/events','EventEmailsController@index');

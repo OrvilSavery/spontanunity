@@ -2,7 +2,7 @@
     <div class="panel-body">
         <div class="col-md-10 col-md-offset-1">
             <h2>Lorem Ipsum Et Dolor</h2>
-            {!! Form::open(['route' => 'join.store']) !!}
+            {!! Form::open(['route' => 'join..store']) !!}
             {!! Form::hidden('user_id', Auth::user()->id) !!}
             <div class="form-group">
                 {!! Form::label('question_1', 'Question 1?') !!}

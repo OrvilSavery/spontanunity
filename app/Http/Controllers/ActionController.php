@@ -2,36 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Application;
-use App\Category;
+use App\Action;
 use App\CategoryAccount;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Validator;
 
-class JoinController extends Controller
+class ActionController extends Controller
 {
     /**
-     * @var Application
+     * @var Action
      */
-    private $application;
+    private $action;
     /**
      * @var CategoryAccount
      */
     private $categoryAccount;
-    /**
-     * @var Category
-     */
-    private $category;
 
     /**
-     * JoinController constructor.
+     * ActionController constructor.
      */
-    public function __construct(Application $application, Category $category, CategoryAccount $categoryAccount)
+    public function __construct(Action $action, CategoryAccount $categoryAccount)
     {
-        $this->application = $application;
-        $this->category = $category;
+        $this->action = $action;
         $this->categoryAccount = $categoryAccount;
     }
 
@@ -43,7 +38,7 @@ class JoinController extends Controller
      */
     public function index()
     {
-        return view('join.index');
+        //
     }
 
     /**
@@ -64,8 +59,13 @@ class JoinController extends Controller
      */
     public function store(Request $request)
     {
-        $this->application->create($request->all());
-        return redirect('join/categories')->with('success', 'success');
+        $input = array_except($request->all(), '_method');
+        $validation = Validator::make($input, Action::$rules);
+        if($validation->passes()) {
+            $this->action->create($input);
+            return response()->json(['message' => 'Congrats!']);
+        }
+        return response()->json(['message' => 'Error!']);
     }
 
     /**
@@ -111,24 +111,5 @@ class JoinController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function categories()
-    {
-        $categories = $this->category->orderbyRaw('RAND()')->get();
-        $categoryList = array();
-        $iterator = 0;
-        foreach($categories as $category) {
-            if(!$this->categoryAccount->where('category_id', $category->id)->where('user_id', Auth::user()->id)->first()) {
-                $iterator++;
-                if($iterator <= 4) {
-                    array_push($categoryList, $category->id);
-                }
-            }
-        }
-        $categories = $categoryList;
-        $categoryInfo = $this->category;
-        $chosen = $this->categoryAccount->where('user_id', Auth::user()->id)->count();
-        return view('account.categories', compact('categories', 'categoryInfo', 'chosen'));
     }
 }

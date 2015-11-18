@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateActionExperienceTable extends Migration
+class CreateActionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,11 @@ class CreateActionExperienceTable extends Migration
      */
     public function up()
     {
-        Schema::create('action_experiences', function (Blueprint $table) {
+        Schema::create('actions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('event_id');
             $table->integer('user_id');
-            $table->string('experience', 255);
+            $table->integer('event_id');
+            $table->integer('action');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateActionExperienceTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('actions');
     }
 }

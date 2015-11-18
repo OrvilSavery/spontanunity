@@ -28,5 +28,52 @@ body {
 
 //Onboarding
 .application-form {
-  margin-top:-80px;
+  .pagePanel();
+}
+
+//Basic Page Style
+.page-panel {
+  .pagePanel();
+}
+
+//Categories
+.category-list-item {
+  position: relative;
+  height:120px;
+  transition: all .3s ease-in;
+  &:hover {
+    background:lighten(@brand-primary, 20%);
+    h1 {
+      color: #fff;
+    }
+  }
+  &.active, &.chosen {
+    background: @brand-primary;
+    h1 {
+      color: #fff;
+    }
+  }
+  &.error {
+    background: @brand-danger;
+    h1 {
+      color: #fff;
+    }
+  }
+  p.lead {
+    display: none;
+  }
+  h1 {
+    font-size: 1em;
+    position: absolute;
+    bottom:0;
+    left:0;
+    margin: 0;
+    padding: 20px;
+  }
+  a {
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
 }
