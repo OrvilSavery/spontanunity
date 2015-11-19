@@ -59,7 +59,7 @@ class PageController extends Controller
                 //Show
                 return redirect('dashboard');
             } else {
-                return redirect('join.index');
+                return redirect('join');
             }
         }
         return view('index');
