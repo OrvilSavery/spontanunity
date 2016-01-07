@@ -1,0 +1,5 @@
+#specifies version of PHP build machine needs to install
+
+machine:
+  php:
+    version: 5.5.11
