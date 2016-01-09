@@ -42,7 +42,7 @@ class Authenticate
                 //return redirect()->guest('login');
             }
         }
-
+        return "test";
         return $next($request);
     }
 }
