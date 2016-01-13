@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
-    /**
-    * The database table used by the model.
-    *
-    * @var string
-    */
     protected $table = 'events';
+    protected $fillable = ['type', 'name', 'description'];
+    public static $rules = [
+        'type' => 'required',
+        'name' => 'required',
+        'description' => 'required'
+    ];
 }
