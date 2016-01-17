@@ -5,10 +5,10 @@ machine:
     version: 5.5.11
   
 #tells circleci to build on the branches listed here.  
-general:
-  branches:
-    only:
-      - prototype # list of branches to build
+#general:
+#  branches:
+#    only:
+#      - prototype # list of branches to build
 
 #prepping for deployment  
 #deployment:
