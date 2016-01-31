@@ -1,0 +1,61 @@
+input::-webkit-input-placeholder {
+  color: #aaa !important;
+  font-family: $serif;
+  font-size: 1em;
+}
+
+input:-moz-placeholder {
+  /* Firefox 18- */
+  color: #aaa !important;
+  font-family: $serif;
+  font-size: 1em;
+}
+input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #aaa !important;
+  font-family: $serif;
+  font-size: 1em;
+}
+input:-ms-input-placeholder {
+  color: #aaa !important;
+  font-family: $serif;
+  font-size: 1em;
+}
+.form-group {
+  position: relative;
+  margin: 0 0 15px 0;
+  label {
+    padding:6px 12px 0px;
+    position: absolute;
+    color: #888;
+    font-weight: bold;
+    display: none;
+  }
+}
+
+input {
+  &.form-style {
+    width:100%;
+    min-height: 60px;
+    display: block;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    color: $darkGreen;
+    font-size: 1.25em;
+    &:focus {
+      padding-top:20px;
+    }
+  }
+  &[type="submit"] {
+    background: $green;
+    color: #fff;
+    font-family: $sansSerif;
+    font-size: 1.5em;
+    width: 100%;
+    @include radius(5px, 5px, 5px, 5px);
+    border:none;
+    outline: none;
+    text-transform: uppercase;
+    padding: 5px 15px;
+  }
+}

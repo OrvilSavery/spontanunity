@@ -14,32 +14,13 @@
 // Authentication routes...
 Route::get('login', 'Auth\AuthController@getLogin');
 Route::post('login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
+Route::get('logout', 'Auth\AuthController@getLogout');
 
 // Registration routes...
-Route::get('auth/register', 'Auth\AuthController@getRegister');
-Route::post('auth/register', 'Auth\AuthController@postRegister');
+Route::get('register', 'Auth\AuthController@getRegister');
+Route::post('register', 'Auth\AuthController@postRegister');
 
-Route::get('home', function(){ return redirect('/'); });
-
-//Index
-Route::get('/', 'PageController@index');
-
-Route::group(['middleware' => 'auth'], function () {
-
-    get('dashboard', 'PageController@dashboard');
-
-    Route::group(['prefix' => 'join'], function() {
-        get('categories', 'JoinController@categories');
-        Route::resource('/', 'JoinController');
-    });
-    Route::resource('categoryAccount', 'CategoryAccountController');
-    Route::group(['prefix' => 'account'], function() {
-        Route::resource('/', 'AccountController');
-    });
-    //Action Function
-    Route::resource('action', 'ActionController');
-});
+get('/', 'PagesController@index');
 
 //send email with initial event
 get('emails/events','EventEmailsController@index');

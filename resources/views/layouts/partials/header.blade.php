@@ -1,12 +1,19 @@
 <!doctype html>
-<html lang="en">
+<html class="no-js" lang="">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Spontanuity</title>
-    <link rel="stylesheet" href="{{ URL::asset('library/css/bootstrap.css') }}">
-    <script src="{{ URL::asset('library/bower_components/jquery/dist/jquery.js') }}"></script>
-    <script src="{{ URL::asset('library/js/bootstrap.js') }}"></script>
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="{{ URL::asset('library/css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('library/css/main.css') }}">
+    <script src="{{ URL::asset('library/js/vendor/modernizr-2.8.3.min.js') }}"></script>
     <script src="https://use.typekit.net/qvm1uhq.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
 </head>
+<body>

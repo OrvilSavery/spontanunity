@@ -1,0 +1,72 @@
+@import "compass/reset";
+
+@import "partials/variables";
+@import "partials/mixins";
+
+@import "partials/base";
+@import "partials/global";
+@import "partials/layout";
+@import "partials/type";
+
+@import "partials/buttons";
+@import "partials/form";
+@import "partials/tabs";
+@import "partials/pages";
+
+//MESSAGES
+.response {
+  padding: 20px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  &.error{
+    color: $messageRedText;
+    background: $messageRedBg;
+    text-align: center;
+  }
+}
+
+//DASHBOARD
+.road-checkmark {
+  position: relative;
+  height: 102px;
+  @include radius(1000px, 5px, 5px, 1000px);
+  a.checkmark {
+    width:102px;
+    height: 102px;
+    display: block;
+    background:url('../img/road-checkmark.png');
+    background-size:100% 100%;
+    text-indent: -9999px;
+    z-index: 1000;
+    position: absolute;
+  }
+  .task {
+    background:$green;
+    @include radius(1000px, 5px, 5px, 1000px);
+    overflow: hidden;
+    width: 100%;
+    position: absolute;
+    height: 102px;
+    display: block;
+    z-index: 100;
+    span {
+      float: left;
+      margin: 0 0 0 110px;
+      padding: 20px 10px 20px 15px;
+      font-size: 1.5em;
+      color: #fff;
+    }
+  }
+  a.help {
+    position: absolute;
+    bottom:0;
+    right: 0;
+    width: 57px;
+    height: 57px;
+    display:block;
+    background:url(../img/road-help.png);
+    background-size: 100% 100%;
+    text-indent: -9999px;
+  }
+}
+

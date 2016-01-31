@@ -1,0 +1,27 @@
+/*
+MIXINS
+*/
+@mixin container($width) {
+  width:100%;
+  max-width:$width;
+  margin: 0 auto;
+  display:block;
+}
+
+@mixin wrapper() {
+  padding:10px 20px;
+}
+
+@mixin radius($px1, $px2, $px3, $px4) {
+  -webkit-border-radius: $px1 $px2 $px3 $px4;
+  -moz-border-radius: $px1 $px2 $px3 $px4;
+  border-radius: $px1 $px2 $px3 $px4;
+}
+
+@mixin transition($type, $time) {
+  -webkit-transition: $type $time ease-in-out;
+  -moz-transition: $type $time ease-in-out;
+  -ms-transition: $type $time ease-in-out;
+  -o-transition: $type $time ease-in-out;
+  transition: $type $time ease-in-out;
+}

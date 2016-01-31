@@ -1,0 +1,65 @@
+/*
+PAGES
+*/
+.heading {
+  color: #fff;
+}
+
+.page {
+  background:$yellow;
+  @include radius(5px, 5px, 0px, 0px);
+  padding: 0px 0 0px;
+  h2 {
+    color: $green;
+    text-transform: uppercase;
+  }
+  .sub-section {
+    background: $orange;
+    padding: 10px 0px;
+    margin-top:20px;
+  }
+}
+
+/*
+HOMEPAGE
+*/
+.tabs {
+  margin: 35px auto;
+  position: relative;
+  > div {
+    position: absolute;
+    width: 100%;
+  }
+  h4 {
+    padding:15px 25px;
+    width: 30%;
+    @include radius(5px, 5px, 0px, 0px);
+    margin: 0;
+  }
+  .form-container {
+    min-height: 260px;
+  }
+  .sign-up, .log-in {
+    .tab-content {
+      min-height: 300px
+    }
+  }
+  .sign-up {
+    h4 {
+      color: $green;
+      background: $yellow;
+    }
+    .form-container {
+      background: $yellow;
+    }
+  }
+  .log-in {
+    h4 {
+      color: $green;
+      background: $orange;
+    }
+    .form-container {
+      background: $orange;
+    }
+  }
+}
