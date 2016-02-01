@@ -21,7 +21,7 @@ Route::get('register', 'Auth\AuthController@getRegister');
 Route::post('register', 'Auth\AuthController@postRegister');
 
 get('/', 'PagesController@index');
-get('home', function(){ return redirect('/')});
+get('home', 'PagesController@index');
 Route::group(['prefix' => 'user'], function () {
     get('name-and-gender', 'PagesController@userSetNameAndGender');
     post('name-and-gender', 'UserController@updateNameAndGender');
