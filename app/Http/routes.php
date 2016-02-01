@@ -21,6 +21,10 @@ Route::get('register', 'Auth\AuthController@getRegister');
 Route::post('register', 'Auth\AuthController@postRegister');
 
 get('/', 'PagesController@index');
+Route::group(['prefix' => 'user'], function () {
+    get('name-and-gender', 'PagesController@userSetNameAndGender');
+    post('name-and-gender', 'UserController@updateNameAndGender');
+});
 
 //send email with initial event
-get('emails/events','EventEmailsController@index');
+get('emails/events', 'EventEmailsController@index');

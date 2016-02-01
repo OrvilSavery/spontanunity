@@ -187,6 +187,13 @@ input:-ms-input-placeholder {
 .form-group {
   position: relative;
   margin: 0 0 15px 0; }
+  .form-group.two-col {
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    padding: 0 0px 0px 10px; }
+    .form-group.two-col:nth-child(even) {
+      padding: 0; }
   .form-group label {
     padding: 6px 12px 0px;
     position: absolute;
@@ -217,6 +224,8 @@ input[type="submit"] {
   outline: none;
   text-transform: uppercase;
   padding: 5px 15px; }
+  input[type="submit"].inactive {
+    background: #d8bf18; }
 
 .tabs .tab-heading {
   cursor: pointer; }
@@ -234,6 +243,10 @@ input[type="submit"] {
     .tabs .tab-single.active .tab-content {
       display: block; }
 
+nav.navigation a.nav-dropdown {
+  float: right;
+  padding: 10px 20px; }
+
 /*
 PAGES
 */
@@ -249,6 +262,9 @@ PAGES
   .page h2 {
     color: #3b6700;
     text-transform: uppercase; }
+  .page h3, .page h4 {
+    color: #3b6700;
+    font-weight: 500; }
   .page .sub-section {
     background: #F3AE3E;
     padding: 10px 0px;
@@ -285,15 +301,6 @@ HOMEPAGE
   .tabs .log-in .form-container {
     background: #F3AE3E; }
 
-.response {
-  padding: 20px;
-  margin: 5px 0;
-  box-sizing: border-box; }
-  .response.error {
-    color: #8e0000;
-    background: #ed7777;
-    text-align: center; }
-
 .road-checkmark {
   position: relative;
   height: 102px;
@@ -308,7 +315,8 @@ HOMEPAGE
     background-size: 100% 100%;
     text-indent: -9999px;
     z-index: 1000;
-    position: absolute; }
+    position: absolute;
+    cursor: pointer; }
   .road-checkmark .task {
     background: #3b6700;
     -webkit-border-radius: 1000px 5px 5px 1000px;
@@ -336,3 +344,142 @@ HOMEPAGE
     background: url(../img/road-help.png);
     background-size: 100% 100%;
     text-indent: -9999px; }
+
+.one-for-the-road .task-none {
+  display: none;
+  background: #d8bf18;
+  -webkit-border-radius: 20px 20px 20px 20px;
+  -moz-border-radius: 20px 20px 20px 20px;
+  border-radius: 20px 20px 20px 20px;
+  text-align: center;
+  padding: 20px; }
+  .one-for-the-road .task-none h1 {
+    color: #7c6e0e; }
+.one-for-the-road.inactive .task-container {
+  display: none; }
+.one-for-the-road.inactive .task-none {
+  display: block; }
+
+.page-dashboard {
+  overflow: hidden; }
+  .page-dashboard .category-list {
+    width: 100%;
+    max-width: 95%;
+    margin: 0 auto;
+    display: block; }
+    .page-dashboard .category-list li {
+      background: #fff;
+      box-sizing: border-box;
+      margin: 0 0 15px 0;
+      font-size: 1.125em;
+      position: relative; }
+      .page-dashboard .category-list li a {
+        font-family: "museo", Georgia, serif;
+        color: #606060;
+        text-decoration: none;
+        width: 100%;
+        display: block;
+        padding: 20px 25px 20px 64px; }
+        .page-dashboard .category-list li a:before {
+          content: " ";
+          width: 33px;
+          height: 41px;
+          background: url(../img/ico-category.png) center center no-repeat;
+          -webkit-background-size: 100% 100%;
+          background-size: 100% 100%;
+          display: block;
+          position: absolute;
+          top: -10px;
+          left: 20px; }
+
+.overlay-modal {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  display: none;
+  top: 0;
+  left: 0;
+  background: rgba(59, 103, 0, 0.9);
+  z-index: 9999;
+  color: #fff; }
+  .overlay-modal img.face {
+    width: 100%;
+    max-width: 230px;
+    margin: 0 auto -40px;
+    display: block; }
+  .overlay-modal a.close {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0; }
+
+.modal-wrapper {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.modal-container {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  display: block; }
+
+.overlay-modal.navigation .modal-wrapper {
+  display: block !important;
+  padding-top: 50px; }
+.overlay-modal.navigation ul.navigation {
+  padding: 100px 0; }
+  .overlay-modal.navigation ul.navigation a {
+    color: #fff;
+    font-size: 3em;
+    font-weight: bold;
+    text-decoration: none;
+    background: #31520b;
+    width: 100%;
+    text-align: center;
+    display: block;
+    padding: 10px;
+    margin: 0 0 10px 0;
+    box-sizing: border-box;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px; }
+
+.gender-choices a {
+  height: 125px;
+  width: 50%;
+  float: left;
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;
+  /* NEW, Spec - Firefox, Chrome, Opera */
+  background: #F3AE3E;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  text-align: center; }
+  .gender-choices a span {
+    padding: 0 0 5px 0;
+    display: block; }
+  .gender-choices a:nth-child(2), .gender-choices a:nth-child(3) {
+    background: #ed9126; }
+  .gender-choices a:hover, .gender-choices a.active {
+    background: #cf7711; }
+
+.response {
+  padding: 20px;
+  margin: 5px 0;
+  box-sizing: border-box; }
+  .response.error {
+    color: #8e0000;
+    background: #ed7777;
+    text-align: center; }

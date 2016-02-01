@@ -10,4 +10,12 @@ $(document).ready(function () {
         $('.tab-heading').parent().removeClass('active');
         $(this).parent().addClass('active');
     });
+
+    //Overlays
+    $('.overlay-modal a.close').on('click', function(){
+        $('.overlay-modal').fadeOut(500);
+    });
+    //Overlays
+
+
 });

@@ -11,27 +11,49 @@
 
 @section('content')
     <div class="wrapper">
-        <div class="page">
-            @if(\App\CategoryAccount::where('user_id', Auth::user()->id)->orderByRaw('RAND()')->first())
+        <div class="page page-dashboard">
             <div class="wrapper">
-                <h2 class="text-center">One For The Road?</h2>
-                <div class="road-checkmark">
-                    <div class="task">
-                        <span>{{ \App\Event::where('type', \App\CategoryAccount::where('user_id', Auth::user()->id)->orderByRaw('RAND()')->first()->category_id)->orderByRaw('RAND()')->first()->name }}</span>
-                        <a href="#" class="help">Help</a>
+                <div class="one-for-the-road {{ $oneForTheRoad[0]['class'] }}">
+                    <h2 class="text-center">One For The Road?</h2>
+
+                    <div class="road-checkmark">
+                        <div class="task-container">
+                            <div class="task">
+                                <span>{{ $oneForTheRoad[0]['name'] }}</span>
+                                <a data-toggle="overlay" data-overlay="event-help"
+                                   data-help-title="{{ $oneForTheRoad[0]['name'] }}"
+                                   data-help-description="{{ $oneForTheRoad[0]['description'] }}"
+                                   data-face="{{ URL::asset('library/img/face-generic.png') }}" class="help">Help</a>
+                            </div>
+                            {!! Form::open(['class'  => 'complete-task']) !!}
+                            <a class="checkmark">Complete One For The Road</a>
+                            {!! Form::close() !!}
+                        </div>
+                        <div class="task-none">
+                            <h1>None For Today!</h1>
+                        </div>
+                        <div class="clearfix"></div>
                     </div>
-                    <a href="#" class="checkmark">Complete One For The Road</a>
-                    <div class="clearfix"></div>
                 </div>
             </div>
-            @endif
             <div class="clearfix"></div>
             <div class="sub-section">
                 <h2 class="text-center">Categories</h2>
+                <ul class="category-list">
+                    @foreach($chosenCategories as $chosen)
+                        <li><a data-toggle="overlay" data-overlay="event-help"
+                               data-help-title="{{ $category->find($chosen->category_id)->name }}"
+                               data-help-description="{{ $category->find($chosen->category_id)->description }}"
+                               data-face="{{ URL::asset('library/img/face-category.png') }}">{{ $category->find($chosen->category_id)->name }}</a></li>
+                    @endforeach
+                </ul>
             </div>
         </div>
     </div>
+
+
 @stop
 
 @section('scripts')
+
 @stop

@@ -31,11 +31,11 @@
                         </div>
                         <div class="form-group">
                             <label for="">Password</label>
-                            <input type="password" name="email" placeholder="Password" class="form-style">
+                            <input type="password" name="password" placeholder="Password" class="form-style">
                         </div>
                         <div class="form-group">
                             <label for="">Confirm Password</label>
-                            <input type="password" name="email" placeholder="Confirm Password" class="form-style">
+                            <input type="password" name="password_confirmation" placeholder="Confirm Password" class="form-style">
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Sign Up">

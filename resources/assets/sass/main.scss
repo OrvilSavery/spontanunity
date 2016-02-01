@@ -11,7 +11,36 @@
 @import "partials/buttons";
 @import "partials/form";
 @import "partials/tabs";
+@import "partials/navigation";
 @import "partials/pages";
+@import "partials/dashboard";
+@import "partials/modals";
+
+
+.gender-choices {
+  a {
+    height: 125px;
+    width:50%;
+    float: left;
+    @include flexbox();
+    background: $orange;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    text-align: center;
+    span {
+      padding:0 0 5px 0;
+      display:block;
+    }
+    &:nth-child(2), &:nth-child(3) {
+      background: $darkOrange;
+    }
+    &:hover, &.active {
+      background:darken($darkOrange, 10%);
+    }
+  }
+}
 
 //MESSAGES
 .response {
@@ -22,51 +51,6 @@
     color: $messageRedText;
     background: $messageRedBg;
     text-align: center;
-  }
-}
-
-//DASHBOARD
-.road-checkmark {
-  position: relative;
-  height: 102px;
-  @include radius(1000px, 5px, 5px, 1000px);
-  a.checkmark {
-    width:102px;
-    height: 102px;
-    display: block;
-    background:url('../img/road-checkmark.png');
-    background-size:100% 100%;
-    text-indent: -9999px;
-    z-index: 1000;
-    position: absolute;
-  }
-  .task {
-    background:$green;
-    @include radius(1000px, 5px, 5px, 1000px);
-    overflow: hidden;
-    width: 100%;
-    position: absolute;
-    height: 102px;
-    display: block;
-    z-index: 100;
-    span {
-      float: left;
-      margin: 0 0 0 110px;
-      padding: 20px 10px 20px 15px;
-      font-size: 1.5em;
-      color: #fff;
-    }
-  }
-  a.help {
-    position: absolute;
-    bottom:0;
-    right: 0;
-    width: 57px;
-    height: 57px;
-    display:block;
-    background:url(../img/road-help.png);
-    background-size: 100% 100%;
-    text-indent: -9999px;
   }
 }
 
