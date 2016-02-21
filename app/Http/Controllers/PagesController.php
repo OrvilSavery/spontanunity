@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class PagesController extends Controller
 {
@@ -59,8 +60,20 @@ class PagesController extends Controller
         if (Auth::guest()) {
             return view('pages.home');
         }
-        if(strlen(Auth::user()->first_name) < 1) {
+        //Check to make sure gender and names are populated
+        $user = Auth::user();
+        $fields = [
+            'first_name' => $user->first_name,
+            'last_name'  => $user->last_name,
+            'gender'     => $user->gender
+        ];
+        $validation = Validator::make($fields, User::$baseRules);
+        if (!$validation->passes()) {
             return redirect('user/name-and-gender');
+        }
+        //Check to make sure user has choson categories
+        if(!$this->categoryAccount->where('user_id', $user->id)->first()) {
+            return redirect('user/categories');
         }
         $chosenCategories = $this->categoryAccount->where('user_id', Auth::user()->id)->orderByRaw('RAND()')->get();
         //Get one random task for the "one for the road"
@@ -70,17 +83,17 @@ class PagesController extends Controller
             foreach ($events as $event) {
                 if ((!$this->eventUser->where('event_id', $event->id)->where('user_id', Auth::user()->id)->first()) && (!$this->eventUser->where('user_id', Auth::user()->id)->where('created_at', '<=', date('Y-m-d 24:00:00'))->where('created_at', '>=', date('Y-m-d 00:00:00'))->where('complete', 1)->first())) {
                     array_push($oneForTheRoad, [
-                        'id'    => $event->id,
-                        'name'  => $event->name,
+                        'id'          => $event->id,
+                        'name'        => $event->name,
                         'description' => $event->description,
-                        'class' => 'active'
+                        'class'       => 'active'
                     ]);
                 } else {
                     array_push($oneForTheRoad, [
-                        'id'    => '0',
-                        'name'  => 'None for today!',
+                        'id'          => '0',
+                        'name'        => 'None for today!',
                         'description' => 'One for the road has completed',
-                        'class' => 'inactive'
+                        'class'       => 'inactive'
                     ]);
                 }
             }
@@ -91,6 +104,12 @@ class PagesController extends Controller
 
     public function userSetNameAndGender()
     {
-        return view('pages.name-and-gender');
+        return view('pages.setup.name-and-gender');
+    }
+
+    public function userCategories()
+    {
+        $categories = $this->category->orderbyRaw('RAND()')->get();
+        return view('pages.setup.categories', compact('categories'));
     }
 }

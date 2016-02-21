@@ -25,6 +25,8 @@ get('home', 'PagesController@index');
 Route::group(['prefix' => 'user'], function () {
     get('name-and-gender', 'PagesController@userSetNameAndGender');
     post('name-and-gender', 'UserController@updateNameAndGender');
+    get('categories', 'PagesController@userCategories');
+    post('categories', 'UserController@addFirstUserCategories');
 });
 
 //send email with initial event

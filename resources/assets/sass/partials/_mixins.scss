@@ -32,3 +32,19 @@ MIXINS
   display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
   display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
 }
+
+@mixin flexItem($number, $percent) {
+  -webkit-box-flex: $number;   /* OLD - iOS 6-, Safari 3.1-6 */
+  width: $percent;            /* For old syntax, otherwise collapses. */
+  -webkit-flex: $number;       /* Safari 6.1+. iOS 7.1+, BB10 */
+  -ms-flex: $number;           /* IE 10 */
+  flex: $number;
+}
+
+@mixin invert($percent) {
+  -webkit-filter: invert($percent) !important;
+  -moz-filter: invert($percent) !important;
+  -o-filter: invert($percent) !important;
+  -ms-filter: invert($percent) !important;
+  filter: invert($percent) !important;
+}
