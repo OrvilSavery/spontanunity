@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html"><img src="{{ URL::asset('library/img/logo.png') }}" class="hidden" width="125" alt="">Spontanuity Control Panel</a>
+        <a class="navbar-brand" href="{{ URL::to('admin') }}"><img src="{{ URL::asset('library/img/logo.png') }}" class="hidden" width="125" alt="">Spontanuity Control Panel</a>
     </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
