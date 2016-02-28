@@ -1,0 +1,1 @@
+var applyValueToInputOnClick=function(a,n){a.on("click",function(){var t=$(this).data("value"),i=$(this).parent().find("input");i.val(t),a.removeClass(n),$(this).addClass(n)})},applyValueToModalOnClick=function(a,n,t){a.on("click",function(){var a=$(this).data("url");t.attr("href",a),n.fadeIn()})};

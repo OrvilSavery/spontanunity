@@ -1,0 +1,37 @@
+@mixin flexbox() {
+  display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+}
+
+@mixin flex($num, $percent) {
+  -webkit-box-flex: $num;   /* OLD - iOS 6-, Safari 3.1-6 */
+  width: $percent;            /* For old syntax, otherwise collapses. */
+  -webkit-flex: $num;       /* Safari 6.1+. iOS 7.1+, BB10 */
+  -ms-flex: $num;           /* IE 10 */
+  flex: $num;               /* NEW, Spec - Firefox, Chrome, Opera */
+}
+
+@mixin backgroundSize($arg) {
+  -webkit-background-size: $arg;
+  background-size: $arg;
+}
+
+@mixin container($width) {
+  margin:0 auto;
+  width: 100%;
+  max-width: $width;
+}
+
+@mixin boxSizing($arg) {
+  -webkit-box-sizing: $arg;
+  -moz-box-sizing: $arg;
+  box-sizing: $arg;
+}
+
+@mixin boxShadow($arg) {
+  -webkit-box-shadow: $arg;
+  -moz-box-shadow: $arg;
+  box-shadow: $arg;
+}

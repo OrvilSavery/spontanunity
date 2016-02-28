@@ -29,5 +29,16 @@ Route::group(['prefix' => 'user'], function () {
     post('categories', 'UserController@addFirstUserCategories');
 });
 
+Route::group(['middleware' => 'auth'], function(){
+    Route::group(['prefix' => 'admin'], function(){
+        Route::get('/', 'Admin\PagesController@index');
+        Route::resource('users', 'Admin\UserController');
+        Route::get('events/archives', 'Admin\EventController@archives');
+        Route::resource('events', 'Admin\EventController');
+        Route::get('categories/archives', 'Admin\CategoryController@archives');
+        Route::resource('categories', 'Admin\CategoryController');
+    });
+});
+
 //send email with initial event
 get('emails/events', 'EventEmailsController@index');
