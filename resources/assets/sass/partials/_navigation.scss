@@ -1,6 +1,14 @@
 nav.navigation {
+  li {
+    list-style-type: none;
+
+  }
   a.nav-dropdown {
     float: right;
     padding:10px 20px;
   }
+}
+
+ul.navigation {
+  list-style-type: none;
 }
