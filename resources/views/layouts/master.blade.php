@@ -37,7 +37,9 @@
             <a class="close"><img src="{{ URL::asset('library/img/btn-close.png') }}" width="30" alt=""></a>
             <ul class="navigation">
                 <li><a href="{{ URL::to('logout') }}">Log Out</a></li>
-                <li><a href="{{ URL::to('admin') }}">Admin</a></li>
+                @if(Auth::check() && Auth::user()->admin == 1)
+                    <li><a href="{{ URL::to('admin') }}">Admin</a></li>
+                @endif
             </ul>
         </div>
     </div>
