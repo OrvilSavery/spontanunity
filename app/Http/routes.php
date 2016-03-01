@@ -29,7 +29,7 @@ Route::group(['prefix' => 'user'], function () {
     post('categories', 'UserController@addFirstUserCategories');
 });
 
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => ['auth', 'admin']], function(){
     Route::group(['prefix' => 'admin'], function(){
         Route::get('/', 'Admin\PagesController@index');
         Route::resource('users', 'Admin\UserController');

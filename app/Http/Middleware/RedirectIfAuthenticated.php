@@ -37,7 +37,6 @@ class RedirectIfAuthenticated
         if ($this->auth->check()) {
             return redirect('join');
         }
-
         return $next($request);
     }
 }
