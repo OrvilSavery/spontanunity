@@ -109,7 +109,7 @@ class PagesController extends Controller
 
     public function userCategories()
     {
-        $categories = $this->category->where('archive', 0)->where('draft', 0)->orderbyRaw('RAND()')->get();
+        $categories = $this->category->active()->orderbyRaw('RAND()')->get();
         return view('pages.setup.categories', compact('categories'));
     }
 }

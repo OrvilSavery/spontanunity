@@ -11,4 +11,9 @@ class Category extends Model
     public static $rules = [
         'name' => 'required'
     ];
+
+    public function scopeActive($query)
+    {
+        return $query->where('archive', 0)->where('draft', 0)->where('active', 1);
+    }
 }
